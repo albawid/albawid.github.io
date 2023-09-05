@@ -1,0 +1,22 @@
+---
+layout: default
+title: Project
+permalink: /project
+---
+<div class="project">
+    <h1 class="judul-blog-project-h1"> < project terbaru /> </h1>
+    <ul id="list-project">
+        {% for project in site.projects %}
+        <li class="box-shadow">
+            <a href="{{ project.url }}" class="pre-box">
+              <div class="box">
+                <img src="{{ project.gambar }}" alt="">
+                <h2 class="judul-blog-project">{{ project.title }}</h2>
+                <h4 class="tanggal-blog-project"><i class="fa fa-calendar"></i> {{ project.date | date: "%-d %B, %Y" }}</h4>
+                <p class="preview">{{ project.excerpt | strip_html | truncatewords:22 }}</p>
+              </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,7 @@
+<navbar>
+    <div class="navbar">
+        {% for navigasi in site.data.navigation %}
+            <a href="{{ navigasi.url }}" class="{% if navigasi.url == page.url %}aktif{% endif %}"><i class="{{ navigasi.icon }}"></i></a>
+        {% endfor %}
+    </div>
+</navbar>

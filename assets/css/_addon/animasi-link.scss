@@ -1,0 +1,18 @@
+/* Animasi a hover (garis bawah teks link) */
+.inline-link {
+    position: relative;
+}
+
+.inline-link:before {
+    content: '';
+    position: absolute;
+    bottom: -1.8px;
+    height: 2px;
+    width: 0;
+    background-color: var(--color-hover);
+    transition: width 100ms;
+}
+
+.inline-link:hover:before {
+    width: 100%;
+}

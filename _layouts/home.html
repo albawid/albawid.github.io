@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        {% include favico.html %}
+        <link rel="stylesheet" href="{{ '/assets/css/home.css' }}">
+        <title>{{ site.title }}</title>
+    </head>
+    <body>
+
+        <div class="container-satu">
+            <div class="main">
+                
+                <div class="pp">
+                    <img src="{{ site.maskot }}" alt="foto profil">
+                </div>
+                
+                <div class="deskripsi">
+
+                    <h2>Hai! Aku {{ site.owner }},</h2>
+                    <h1>Seorang <span id="ketik"></span></h1>
+                    <p>{{ site.tagline }}</p>
+                    
+                    <div class="icon-sosmed">
+                        <a href="https://twitter.com/{{ site.twitter_username }}/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://t.me/{{ site.tele_username }}/" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://github.com/{{ site.github_username }}/" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:{{ site.email }}?cc=&bcc=&subject=&body="><i class="fa fa-envelope"></i></a>
+                        <a href="/about/"><i class="fa fa-user-circle"></i></a>
+                    </div>
+
+                </div> <!-- Deskripsi -->
+            </div> <!-- Main -->
+
+            <div class="scroll-bawah"> <!-- tanda scroll kebawah untuk tampilan min 768px -->
+                <i class="fa fa-sort-down"></i>
+            </div>
+
+        </div> <!-- Container-satu -->
+
+        <div class="container-dua">
+            
+            <h1>Post</h1>
+            <div class="post">
+                {% for post in site.posts limit:3 %}  <!-- loop maksimal 3 post paling baru-->
+                <div class="pre">
+                    <a href="{{ post.url }}">
+                        <div class="box">
+                            <h2 class="isi-box">{{ post.title}}</h2>
+                            <h4 class="isi-box"><i class="fa fa-calendar">  </i> {{ post.date | date: "%-d %B, %Y" }}</h4>
+                            <p class="preview isi-box">{{ post.excerpt | strip_html | truncatewords:25 }}</p>
+                            <span class="tag isi-box">
+                                {% for tag in post.tags limit:3 %} <!-- maksimal 3 tag biar gk rusak kwoakwaok-->
+                                {% capture tag_name %}{{ tag }}{% endcapture %}
+                                <p># {{ tag_name }}</p>
+                                {% endfor %}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div> <!-- End Post -->
+
+            <div class="pre-lainnya">
+                <a href="/post.html" class="lainnya">Semua Post</a>
+            </div>
+
+            <h1>Project</h1>
+            <div class="project"> 
+                {% for project in site.projects limit:3 %}
+                <div class="pre">
+                    <a href="{{ project.url }}">
+                        <div class="box">
+                            <img src="{{ project.gambar }}" alt="">
+                            <h2>{{ project.title }}</h2>
+                            <h4><i class="fa fa-calendar"> </i> {{ project.date | date: "%-d %B, %Y" }}</h4>
+                            <p class="desk-project">{{ project.excerpt | strip_html | truncatewords:22 }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div> <!-- End Project -->
+
+            <div class="pre-lainnya">
+                <a href="/project.html" class="lainnya">Semua Project</a>
+            </div>
+
+        </div> <!-- End Container-dua -->
+
+        {% include footer.html %}
+
+        <script>
+            var typed = new Typed("#ketik", {
+            strings: ["^900 Kang Ketik", "^900 Wibu","^900 Gamer"],
+            typeSpeed: 90,
+            startDelay: 0,
+            backSpeed: 70,
+            backDelay: 800,
+            loop: true,
+            });
+        </script>
+    </body>
+</html>

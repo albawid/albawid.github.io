@@ -1,0 +1,32 @@
+---
+layout: default
+title: Blog
+permalink: /post
+---
+<div class="blog">
+  <h1 class="judul-post-blog-h1"> < post terbaru /> </h1>
+  <br>
+  <!-- <span class="peringatan">Untuk sementara gunakan CTRL + F untuk mencari judul post</span> -->
+  {% include search.html %}
+  <br>
+
+  <ul id="list-post">
+    {% for post in site.posts %}
+      <li class="box-shadow">
+        <a href="{{ post.url }}" class="pre-box">
+          <div class="box">
+            <h2 class="judul-post-blog">{{ post.title }}</h2>
+            <h4><i class="fa fa-calendar"></i> {{ post.date | date: "%-d %B, %Y" }}</h4>
+            <p class="preview">{{ post.excerpt | strip_html | truncatewords:25 }}</p>
+            <span class="tag">
+              {% for tag in post.tags limit:3 %} <!-- maksimal 3 tag biar gk rusak kwoakwaok-->
+              {% capture tag_name %}{{ tag }}{% endcapture %}
+              <p># {{ tag_name }}</p>
+              {% endfor %}
+          </span>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

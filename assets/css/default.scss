@@ -1,0 +1,193 @@
+---
+---
+/* == CSS RESET == */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* == END CSS RESET == */
+
+// colorscheme
+@import '_addon/gruvbox';
+// Font import google
+@import '_addon/font';
+// bar navigasi
+@import '_addon/navbar';
+// custom scrollbar
+@import '_addon/scrollbar';
+//animasi garis bawah teks link
+@import '_addon/animasi-link';
+// footer
+@import '_addon/footer';
+// css post.html (tampilan isi project)
+@import 'project';
+// css post.html (tampilan isi post)
+@import 'post';
+// css project.html (tampilan list project)
+@import 'blog-project';
+// css blog.html (tampilan list post)
+@import 'blog-post';
+// colorscheme codeblock
+@import '_addon/pygments';
+// daftar isi
+@import '_addon/toc';
+// lightbox (fitur zoom gambar & video)
+@import '_addon/lightbox';
+// github-komen
+@import '_addon/github-komen.scss';
+// tombol search
+@import '_addon/search';
+
+body { // trik agar footer tidak collapse ketika tidak ada content pake flex
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+    font-family: 'Signika', sans-serif;
+	background-color: var(--bg-light);
+}
+
+.container { // trik agar footer tidak collapse ketika tidak ada content pake flex
+	flex-grow: 1;
+	width: 90vw;
+	height: fit-content;
+	margin: 1rem auto;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+	.content-post {
+		font-size: 1.2rem;
+	}
+
+	.content-project {
+		font-size: 1.2rem;
+	}
+
+	.blog .box-shadow { // box list post
+		margin-bottom: 0;
+		margin-inline: 0;
+	}
+	
+	.blog ul { // list post horizontal rata tengah
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 750px;
+		margin: auto;
+		gap: 1.3rem;
+		box-sizing: border-box;
+	}
+
+	.lisensi .space-between img {
+		align-self: center;
+		margin: 0; 
+		order: 2; // ubah urutan gambar lisensi
+	}
+
+	.project ul { // list project horizontal rata kanan tengah kiri
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 750px;
+		margin-inline: auto;
+		gap: 1.3rem;
+	}
+
+	.lisensi { 
+		text-align: left;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.blog ul {
+		max-width: 1400px;
+	}
+	
+	.project ul {
+		max-width: 1400px;
+	}
+
+	.blog .box {
+		width: 320px;
+		height: 290px;
+	}
+
+	.blog .box-shadow {
+		width: 320px;
+		height: 290px;
+	}
+
+	.blog .box h4 { // tanggal
+		padding-block: .6rem;
+	}
+
+	.blog .preview { // preview post atau excerpt ditampilkan di screen >=1024px
+		display: inline-block;
+		flex-grow: 1;
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+		color: var(--color-headline-p);
+	}
+
+	.blog .preview:first-letter {
+		text-transform: capitalize;
+	}
+
+	.content-post { // max lebar post atau artikel
+		margin: auto;
+		max-width: 900px;
+	}
+
+	.content-project { // max lebar post atau artikel
+		margin: auto;
+		max-width: 900px;
+	}
+}
+
+span.peringatan { // peringatan tombol search belom jadi hahaha
+	color: var(--label-gambar);
+	font-size: .9rem;
+	font-style: italic;
+	position: relative;
+	top: -1.5rem;
+}

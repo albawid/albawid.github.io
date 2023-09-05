@@ -1,0 +1,16 @@
+.lisensi {
+    text-align: center;
+}
+
+.lisensi .space-between {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.lisensi .space-between img {
+    margin: 0 auto .4rem;
+    width: 90px;
+    height: 32px;
+}

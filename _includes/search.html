@@ -1,0 +1,20 @@
+<!-- Html Elements for Search -->
+<div id="search-container">
+    <input type="text" id="search-input" onkeyup="func()" placeholder="Cari judul atau tag tanpa #">
+    <ul id="results-container"></ul>
+</div>
+
+<!-- disable list post ketika search digunakan -->
+<script src="{{ '/assets/js/disable-list.js' }}" type="text/javascript"></script>
+    
+<!-- Script pointing to search-script.js -->
+<script src="{{ '/assets/js/search.js' }}" type="text/javascript"></script>
+
+<!-- Configuration -->
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/assets/js/search.json'
+})
+</script>

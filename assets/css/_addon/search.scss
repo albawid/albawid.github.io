@@ -1,0 +1,28 @@
+input#search-input {
+    font-style: 'Signika', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    height: 2rem;
+    padding-inline: 1rem;
+    box-sizing: border-box;
+    background-color: var(--bg-light);
+    color: var(--bg-dark);
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--oren-gelap);
+}
+
+input#search-input::placeholder {
+    font-size: .9rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--fg-footer-light);
+}
+
+ul#results-container {
+    padding-top: 1rem;
+    margin-top: .5rem;
+    margin-bottom: -1rem;
+}

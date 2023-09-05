@@ -1,0 +1,27 @@
+// footer {
+//     clear: both;
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+// }
+
+footer p {
+    width: 100%;
+    padding-block: .7rem;
+    text-align: center;
+    line-height: 1.45rem;
+    letter-spacing: .04rem;
+    background-color: var(--bg-footer-light);
+    color: var(--fg-footer-light);
+}
+
+footer a {
+    /* font-weight: bold; */
+    text-decoration: none;
+    color: var(--color-hover);
+}
+
+.fa-heart {
+    color: var(--color-heart);
+}

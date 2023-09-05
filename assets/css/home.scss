@@ -1,0 +1,455 @@
+---
+---
+/* == CSS RESET == */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* == END CSS RESET == */
+
+//colorscheme
+@import '_addon/gruvbox';
+// Font
+@import '_addon/font';
+//kustom scrollbar
+@import '_addon/scrollbar.scss';
+//footer
+@import '_addon/footer';
+//animasi garis bawah teks link
+@import '_addon/animasi-link';
+
+body {
+    position: relative;
+    font-family: 'Signika', sans-serif;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+.container-satu {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+.main {
+    box-sizing: border-box;
+    padding-block: 6.5rem;
+}
+
+.pp {
+    margin-inline: 2rem;
+}
+
+.pp img {
+    margin: auto;
+    width: 230px;
+    border: 3px solid var(--color-box-border);
+    border-radius: 50%;
+    box-shadow: 4px 4px 0px var(--color-box-shadow);
+}
+
+.deskripsi {
+    height: fit-content;
+    color: var(--color-headline);
+    box-sizing: border-box;
+    padding: 1.9rem;
+}
+
+.deskripsi h2 {
+    font-size: 1.3rem;
+    letter-spacing: .05rem;
+    color: var(--color-tagline);
+}
+
+.deskripsi h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.9rem;
+    margin-block: 1rem;
+}
+
+.deskripsi p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    letter-spacing: .05rem;
+    color: var(--color-headline-p);
+}
+
+.icon-sosmed {
+    margin-top: 1rem;
+}
+
+.icon-sosmed a {
+    text-decoration: none;
+    letter-spacing: .5rem;
+    font-size: 1.7rem;
+    color: var(--color-sosmed);
+    transition: all 200ms;
+}
+
+.icon-sosmed a:hover {
+    color: var(--color-hover);
+}
+
+.scroll-bawah {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-block: 1.5rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-transform: capitalize;
+    text-align: center;
+    color: var(--color-sosmed);
+    opacity: .7;
+}
+
+/* Container-dua */
+.container-dua {
+    margin-inline: auto;
+    max-width: 1100px;
+    text-align: center;
+    // position: relative;
+}
+
+.container-dua h1 {
+    margin-block: 2.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-headline);
+    display: inline-block;
+    position: relative;
+}
+
+.container-dua h1:after {
+    content: '';
+    background-color: var(--color-hover);
+    width: 65%;
+    height: 3px;
+    position: absolute;
+    left: calc(50% - 34%);
+    bottom: -6px;
+}
+
+.post {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    margin-bottom: 2.2rem;
+}
+
+.post .pre {
+    position: relative;
+    width: 320px;
+    height: 290px;
+    /* border: 1px solid black; */
+    background-color: var(--color-box-shadow);
+}
+
+ .post .box { /* kotak post */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 290px;
+    text-align: left;
+    background-color: var(--color-box);
+
+    position: absolute;
+    top: -5px;
+    left: -5px;
+
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 2px solid var(--color-box-border);
+
+    transition: all 70ms;
+}
+
+.post .box:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // cursor: pointer;
+}
+
+.isi-box, p {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.post h2 { /* Judul */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 1.7rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    color: var(--color-judul);
+}
+
+.post h4 { /* Tanggal */
+    padding-block: .6rem;
+    color: var(--color-judul-p);
+}
+
+.post .preview { /* Preview artikel */
+    flex-grow: 1;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    color: var(--color-headline-p);
+    overflow: hidden;
+    // text-overflow: ellipsis;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 5;
+    // -webkit-box-orient: vertical;
+}
+
+.post .preview:first-letter {
+    text-transform: capitalize;
+}
+
+.post span p { /* Tag */
+    font-size: .85rem;
+    text-transform: uppercase;
+    margin-top: 1.8rem;
+    margin-right: .3rem;
+    padding: .5rem .7em;
+    background-color: var(--oren-cerahhh);
+    color: var(--oren-gelap);
+    box-sizing: border-box;
+}
+
+.pre-lainnya {
+    margin-inline: auto;
+    margin-bottom: 2.2rem;
+    position: relative;
+    width: 12rem;
+    height: 3rem;
+    background-color: var(--oren-gelap);
+}
+
+.lainnya {
+    display: block;
+    width: inherit;
+    height: inherit;
+    line-height: 2.75rem;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+
+    color: var(--bg-light);
+    background-color: var(--oren-cerah);
+    border: 2px solid var(--oren-gelap);
+    box-sizing: border-box;
+
+    transition: all 200ms;
+
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.lainnya:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    margin-bottom: 2.2rem;
+}
+
+.project .pre {
+    position: relative;
+    width: 350px;
+    height: 337px;
+    /* border: 1px solid black; */
+    background-color: var(--color-box-shadow);
+}
+
+.project .box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 350px;
+    height: 337px;
+    background-color: var(--color-box);
+    
+    box-sizing: border-box;
+    border: 2px solid var(--color-box-border);
+    text-align: left;
+    overflow: hidden;
+
+    position: absolute;
+    top: -5px;
+    left: -5px;
+
+    transition: all 70ms;
+}
+
+.project .box:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project h2 { /* nama project */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 1.7rem;
+    margin-top: .5rem;
+    margin-inline: 1rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    
+    color: var(--color-judul);
+}
+
+.project p { /* deskripsi project */
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    margin-inline: 1rem;
+    margin-bottom: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-judul-p);
+    // display: -webkit-box; // bentrok dengan display: inline-block;
+    // -webkit-line-clamp: 3;
+    // -webkit-box-orient: vertical;
+}
+
+.project p.desk-project:first-letter {
+    text-transform: capitalize;
+}
+
+.project h4 { /* Tanggal */
+    margin-inline: 1rem;
+    padding-block: .5rem;
+    color: var(--color-judul-p);
+}
+
+@media only screen and (min-width: 768px){
+    .pp img {
+        width:250px;
+    }
+
+    .deskripsi h2 {
+        font-size: 1.5rem;
+    }
+
+    .deskripsi h1 {
+        font-size: 2.6rem;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .container-satu {
+        max-width: 1100px;
+        height: fit-content;
+        margin: auto;
+    }
+
+    .main {
+        display: flex;
+        box-sizing: border-box;
+        padding-block: 6.5rem;
+    }
+
+    .pp {
+        align-self: center;
+        margin-inline: 0;
+        padding: 0 1.4rem 0 1.9rem;
+        box-sizing: border-box;
+    }
+
+    .pp img {
+        width: 300px;
+    }
+
+    .deskripsi {
+        /* border-left: 6px solid var(--color-headline); */
+        height: fit-content;
+        align-self: center;
+        text-align: left;
+        color: var(--color-headline);
+        box-sizing: border-box;
+        padding: 1.9rem 1.9rem 1.9rem 1.4rem;
+    }
+
+    .deskripsi h1 {
+        font-size: 3.2rem;
+    }
+
+    .scroll-bawah {
+        display: none;
+    }
+
+    .icon-sosmed a {
+        font-size: 2rem;
+    }
+} 
+
+
+
+

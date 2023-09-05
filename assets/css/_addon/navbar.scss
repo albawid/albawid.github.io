@@ -1,0 +1,30 @@
+.navbar {
+	border: 2px solid var(--color-box-border);
+	width: fit-content;
+	margin: 2rem auto 1rem;
+	padding-inline: .3rem;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 4.2px 4.2px 0 var(--color-box-shadow);
+}
+
+.navbar a {
+	display: inline-block;
+	font-size: 1.5rem;
+	margin: 1rem 1rem;
+	color: var(--color-sosmed);
+	transition: all 200ms;
+}
+
+.navbar a:hover {
+	color: var(--color-hover);
+}
+
+.navbar a:before { // disable animasi garis bawah
+    position: static;
+}
+
+.navbar a.aktif {
+	color: var(--color-hover);
+	cursor: default;
+}

@@ -1,0 +1,8 @@
+- icon: fa fa-home
+  url: /
+- icon: fa fa-book
+  url: /post
+- icon: fa fa-laptop
+  url: /project
+- icon: fa fa-user-circle
+  url: /about/

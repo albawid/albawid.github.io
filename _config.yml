@@ -1,0 +1,101 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+owner: Albawid
+title: Blog'e Albawid
+email: albawid@outlook.com
+tagline: Yang suka menikmati hidup dengan santai dan segelas es teh tapi selalu punya niat mempelajari hal baru setiap harinya khususnya perkembangan teknologi atau mungkin yang biasa disebut "Technology Enthusiast".
+description: >- # this means to ignore newlines until "baseurl:"
+  Tempat menulis suatu catatan yang mungkin saja tidak bermanfaat
+  bagi sebagian manusia.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "albawid.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+twitter_username: Albawidd
+github_username: albawid
+tele_username: albawid
+
+permalink: /posts/:title/
+
+maskot: /assets/img/maskot/hehe300x300.png
+gambar: /assets/img
+favico: /assets/img/favico
+addon: /assets/css/_addon
+
+# Frontmatter aktif secara global (1 scope 1 komponen) 
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
+    
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:title/
+
+# Build settings
+# theme: minima (tema bawaan)
+theme: 
+plugins:
+  - jekyll-feed
+  - jekyll-toc
+
+# TOC Settings
+toc:
+ min_level: 1
+ max_level: 3
+ list_class: toc
+ list_class: toc__list
+ sublist_class: toc__sublist
+
+# Komentar
+comments:
+  # 'disqus' / 'giscus' / 'utterances' are available
+  provider:            utterances
+
+# You must install utterances github app before use.(https://github.com/apps/utterances)
+# Make sure all variables are set properly. Check below link for detail.
+# https://utteranc.es/
+utterances:
+  repo:                "albawid/albawid.github.io"
+  issue-term:          "pathname"
+  label:               "Comments"
+  theme:               "github-light"
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

@@ -1,0 +1,30 @@
+:root {
+    /* Light Mode */
+    --oren-cerahhh: #fbd8c1;
+    --oren-cerah: #d65d0e;
+    --oren-gelap: #af3a03;
+    --bg-light: #f9f5d7;
+    --bg-dark: #282828;
+    --label-gambar: #928374;
+    --bg-code-inline: #fdf3ed;
+    --bg-footer-light: var(--color-headline);
+    --fg-footer-light: #bdae93;
+    --bg-blockquote: #ebdbb2;
+    --color-heart: #fb4934;
+    --tes-border: 1px solid black;
+    /* --bg-footer-dark: ;
+    --fg-footer-dark: ; */
+
+    --color-tagline: var(--oren-cerah);
+    --color-headline: #3c3836;
+    --color-headline-p: #665c54;
+    --color-sosmed: #7c6f64;
+    --color-hover: var(--oren-cerah);
+    --color-box: #fbf1c7;
+    --color-box-shadow: var(--oren-gelap);
+    --color-box-border: var(--oren-gelap);
+    --color-judul: var(--color-headline);
+    --color-judul-p: var(--color-headline-p);
+    --color-text: var(--color-headline);
+    --color-linenum: var(--fg-footer-light);
+}

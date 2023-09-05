@@ -1,0 +1,31 @@
+::-webkit-scrollbar-track {
+    background-color: var(--oren-cerahhh);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    background-color: var(--oren-cerahhh);
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--oren-gelap);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--oren-cerah);
+}
+
+// warna teks yang di-blok
+::-moz-selection {
+    color: white;
+    background-color: var(--oren-cerah);
+}
+
+::selection {
+    color: white;
+    background-color: var(--oren-cerah);
+}
