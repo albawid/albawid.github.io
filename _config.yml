@@ -39,6 +39,9 @@ gambar: /assets/img
 favico: /assets/img/favico
 addon: /assets/css/_addon
 
+sass:
+  sass_dir: /assets/css/
+
 # Frontmatter aktif secara global (1 scope 1 komponen) 
 defaults:
   - scope:
