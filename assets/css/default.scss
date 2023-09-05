@@ -46,6 +46,23 @@ table {
 }
 /* == END CSS RESET == */
 
+body { // trik agar footer tidak collapse ketika tidak ada content pake flex
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+    font-family: 'Signika', sans-serif;
+	background-color: var(--bg-light);
+}
+
+.container { // trik agar footer tidak collapse ketika tidak ada content pake flex
+	flex-grow: 1;
+	width: 90vw;
+	height: fit-content;
+	margin: 1rem auto;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
 // colorscheme
 @import '_addon/gruvbox.scss';
 // Font import google
@@ -76,23 +93,6 @@ table {
 @import '_addon/github-komen.scss';
 // tombol search
 @import '_addon/search.scss';
-
-body { // trik agar footer tidak collapse ketika tidak ada content pake flex
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-    font-family: 'Signika', sans-serif;
-	background-color: var(--bg-light);
-}
-
-.container { // trik agar footer tidak collapse ketika tidak ada content pake flex
-	flex-grow: 1;
-	width: 90vw;
-	height: fit-content;
-	margin: 1rem auto;
-	padding: 1rem;
-	box-sizing: border-box;
-}
 
 @media only screen and (min-width: 768px) {
 	.content-post {
