@@ -47,35 +47,35 @@ table {
 /* == END CSS RESET == */
 
 // colorscheme
-@import '_addon/gruvbox';
+@import '_addon/gruvbox.scss';
 // Font import google
-@import '_addon/font';
+@import '_addon/font.scss';
 // bar navigasi
-@import '_addon/navbar';
+@import '_addon/navbar.scss';
 // custom scrollbar
-@import '_addon/scrollbar';
+@import '_addon/scrollbar.scss';
 //animasi garis bawah teks link
-@import '_addon/animasi-link';
+@import '_addon/animasi-link.scss';
 // footer
-@import '_addon/footer';
+@import '_addon/footer.scss';
 // css post.html (tampilan isi project)
-@import 'project';
+@import 'project.scss';
 // css post.html (tampilan isi post)
-@import 'post';
+@import 'post.scss';
 // css project.html (tampilan list project)
-@import 'blog-project';
+@import 'blog-project.scss';
 // css blog.html (tampilan list post)
-@import 'blog-post';
+@import 'blog-post.scss';
 // colorscheme codeblock
-@import '_addon/pygments';
+@import '_addon/pygments.scss';
 // daftar isi
-@import '_addon/toc';
+@import '_addon/toc.scss';
 // lightbox (fitur zoom gambar & video)
-@import '_addon/lightbox';
+@import '_addon/lightbox.scss';
 // github-komen
 @import '_addon/github-komen.scss';
 // tombol search
-@import '_addon/search';
+@import '_addon/search.scss';
 
 body { // trik agar footer tidak collapse ketika tidak ada content pake flex
 	display: flex;
