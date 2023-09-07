@@ -32,10 +32,11 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
+# Scss/Sass converter to css/css.map
 gem "jekyll-sass-converter"
 
 # Plugin daftar isi
 gem "jekyll-toc" 
 
-# Plugin github-pages
-# gem 'github-pages'
+# Plugin locale tanggal/penanggalan
+gem "jekyll-date-localization" 

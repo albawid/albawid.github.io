@@ -16,7 +16,7 @@ permalink: /post
         <a href="{{ post.url }}" class="pre-box">
           <div class="box">
             <h2 class="judul-post-blog">{{ post.title }}</h2>
-            <h4><i class="fa fa-calendar"></i> {{ post.date | date: "%-d %B, %Y" }}</h4>
+            <h4><i class="fa fa-calendar"></i> {{ post.date | localize: "%-d %B, %Y" }}</h4>
             <p class="preview">{{ post.excerpt | strip_html | truncatewords:25 }}</p>
             <span class="tag">
               {% for tag in post.tags limit:3 %} <!-- maksimal 3 tag biar gk rusak kwoakwaok-->

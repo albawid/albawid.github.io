@@ -12,7 +12,7 @@ permalink: /project
               <div class="box">
                 <img src="{{ project.gambar }}" alt="">
                 <h2 class="judul-blog-project">{{ project.title }}</h2>
-                <h4 class="tanggal-blog-project"><i class="fa fa-calendar"></i> {{ project.date | date: "%-d %B, %Y" }}</h4>
+                <h4 class="tanggal-blog-project"><i class="fa fa-calendar"></i> {{ project.date | localize: "%-d %B, %Y" }}</h4>
                 <p class="preview">{{ project.excerpt | strip_html | truncatewords:22 }}</p>
               </div>
             </a>

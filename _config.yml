@@ -60,12 +60,15 @@ theme:
 plugins:
   - jekyll-feed
   - jekyll-toc
+  - jekyll-date-localization
+
+# Setting Bahasa penanggalan
+date_locale: id
 
 # TOC Settings
 toc:
  min_level: 1
  max_level: 3
- list_class: toc
  list_class: toc__list
  sublist_class: toc__sublist
 

@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="content-post">
   <h1 class="judul-post">{{ page.title }}</h1>
-  <p class="tanggal"><i class="fa fa-calendar"></i> {{ page.date | date: "%-d %B, %Y" }} &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> {{ page.author }}</a></p>
+  <p class="tanggal"><i class="fa fa-calendar"></i> {{ page.date | localize: "%-d %B, %Y" }} &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> {{ page.author }}</a></p>
   <span class="tag-center">
     {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}

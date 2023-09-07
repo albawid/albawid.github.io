@@ -50,10 +50,10 @@
                     <a href="{{ post.url }}">
                         <div class="box">
                             <h2 class="isi-box">{{ post.title}}</h2>
-                            <h4 class="isi-box"><i class="fa fa-calendar">  </i> {{ post.date | date: "%-d %B, %Y" }}</h4>
+                            <h4 class="isi-box"><i class="fa fa-calendar">  </i> {{ post.date | localize: "%-d %B, %Y" }}</h4>
                             <p class="preview isi-box">{{ post.excerpt | strip_html | truncatewords:25 }}</p>
-                            <span class="tag isi-box">
-                                {% for tag in post.tags limit:3 %} <!-- maksimal 3 tag biar gk rusak kwoakwaok-->
+                            <span class="tag isi-box"> <!-- maksimal 3 tag biar gk rusak kwoakwaok-->
+                                {% for tag in post.tags limit:3 %} 
                                 {% capture tag_name %}{{ tag }}{% endcapture %}
                                 <p># {{ tag_name }}</p>
                                 {% endfor %}
@@ -76,7 +76,7 @@
                         <div class="box">
                             <img src="{{ project.gambar }}" alt="">
                             <h2>{{ project.title }}</h2>
-                            <h4><i class="fa fa-calendar"> </i> {{ project.date | date: "%-d %B, %Y" }}</h4>
+                            <h4><i class="fa fa-calendar"> </i> {{ project.date | localize: "%-d %B, %Y" }}</h4>
                             <p class="desk-project">{{ project.excerpt | strip_html | truncatewords:22 }}</p>
                         </div>
                     </a>
