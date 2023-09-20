@@ -21,7 +21,7 @@
 .blog h1.judul-post-blog-h1:after {
 	position: absolute;
 	content: '';
-	bottom: -6px;
+	bottom: -2px;
 	left: calc(50% - 34%);
 	width: 65%;
 	height: 3px;
@@ -53,6 +53,7 @@
     position: static;
     text-decoration: none;
     color: var(--color-hover);
+	text-wrap: wrap;
 }
 
 .blog a:before {

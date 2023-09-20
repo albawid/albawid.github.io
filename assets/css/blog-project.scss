@@ -21,7 +21,7 @@
 .project h1.judul-blog-project-h1:after {
 	position: absolute;
 	content: '';
-	bottom: -6px;
+	bottom: -2px;
 	left: calc(50% - 34%);
 	width: 65%;
 	height: 3px;
@@ -106,6 +106,7 @@
     position: static;
     text-decoration: none;
     color: var(--color-hover);
+    text-wrap: wrap;
 }
 
 .project a:before {
