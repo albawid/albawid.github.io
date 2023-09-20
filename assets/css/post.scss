@@ -10,9 +10,9 @@ h1, h2, h3 {
     width: fit-content;
 }
 
-h1 { font-size: 2rem; margin-bottom: .9rem;}
+h1 { font-size: 2rem; margin-bottom: .9rem; line-height: 2.3rem;}
 h2 { font-size: 1.5rem; margin-bottom: .8rem;}
-h3 { font-size: 1.2rem; margin-bottom: .7rem;}
+h3 { font-size: 1.2rem; margin-bottom: .7rem; line-height: 1.5rem;}
 
 :is(h1,h2,h3):before {
     content: '# ';
@@ -28,12 +28,13 @@ h3 { font-size: 1.2rem; margin-bottom: .7rem;}
     background-color: var(--oren-cerah);
 }
 
-h1:after { bottom: -7px; }
-h3:after { bottom: -1px; }
+h1:after { bottom: -3px; }
+h3:after { bottom: -2px; }
 
 a {
     position: relative;
     text-decoration: none;
+    text-wrap: nowrap;
     color: var(--color-hover);
 }
 
@@ -66,6 +67,7 @@ h1.judul-post {
     text-align: center;
     margin-bottom: 1rem;
     line-height: 2.3rem;
+    text-wrap: balance;
 }
 
 h1.judul-post:before {
@@ -129,6 +131,11 @@ blockquote::before {
     content: '\201C';
     font-size: 3rem;
     color: var(--color-box-border);
+}
+
+blockquote ul,
+blockquote ol {
+    padding-left: 1rem;
 }
 
 strong {
@@ -208,7 +215,8 @@ p a.tengah.lightbox-image { // gambar rata tengah tanpa class .p-gambar
 // END Lightbox
 
 // Codeblock
-p code.language-plaintext { // code codeblock inline
+li code.language-plaintext,
+p code.language-plaintext { // codeblock inline
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
     color: var(--bg-dark);
