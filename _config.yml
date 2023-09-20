@@ -45,7 +45,7 @@ sass:
 # Frontmatter aktif secara global (1 scope 1 komponen) 
 defaults:
   - scope:
-      path: ""
+      path: "" # jika path kosong maka settingan ini mencakup semua file 
     values:
       toc: true
     
