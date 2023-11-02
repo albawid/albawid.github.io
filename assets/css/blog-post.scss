@@ -1,0 +1,124 @@
+.blog ul.disable { // disable list post ketika tombol search dipakai
+	display: none;
+}
+
+.blog {
+	margin-inline: auto;
+	text-align: center;
+}
+
+.blog h1.judul-post-blog-h1 {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.blog h1.judul-post-blog-h1:after {
+	position: absolute;
+	content: '';
+	bottom: -2px;
+	left: calc(50% - 34%);
+	width: 65%;
+	height: 3px;
+	background-color: var(--oren-cerah);
+}
+
+.blog h1.judul-post-blog-h1:before {
+	content: '';
+}
+
+.blog ul {
+	margin: auto;
+}
+
+.blog li {
+	list-style-type: none;
+}
+
+.blog .box-shadow { // li
+	position: relative;
+	width: 320px;
+	height: 143px;
+	background-color: var(--color-box-shadow);
+	margin-bottom: 1rem;
+	margin-inline: auto;
+}
+
+.blog a.pre-box {
+    position: static;
+    text-decoration: none;
+    color: var(--color-hover);
+	text-wrap: wrap;
+}
+
+.blog a:before {
+    position: static;
+}
+
+.blog .box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	width: 320px;
+	height: 143px;
+	padding: 1rem;
+	text-align: left;
+	background-color: var(--color-box);
+	border: 2px solid var(--color-box-border);
+	box-sizing: border-box;
+	transition: all 70ms;
+}
+
+.blog .box:hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.blog h2.judul-post-blog { // judul
+    display: inline-block;
+	margin-block: 0;
+    color: var(--color-judul);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 1.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.blog h2.judul-post-blog:before {
+	content: '';
+}
+
+.blog h4 { // tanggal
+    display: inline-block;
+    padding-block: .3rem;
+    color: var(--color-judul-p);
+}
+
+.blog .preview {
+	display: none;
+}
+
+.blog span p {
+    display: inline-block;
+    color: var(--oren-cerah);
+    font-size: .85rem;
+    text-transform: uppercase;
+    margin-right: .3rem;
+    padding: .5rem .7rem;
+    box-sizing: border-box;
+    background-color: var(--oren-cerahhh);
+}
