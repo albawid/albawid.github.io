@@ -191,15 +191,19 @@ email: nama@email.com
 ...
 {% endhighlight %}
 
-Kemudian tulis liquid `{% raw %}{{ site.value }}{% endraw %}` kedalam HTML:
+Kemudian tulis liquid `{% raw %}{{ site.title }}{% endraw %}` kedalam HTML:
 
 {: file='index.html'}
 {% highlight html %}
 <html lang="id">
     <head>
-        <title>{% raw %}{{ site.value }}{% endraw %}</title>
+        <title>{% raw %}{{ site.title }}{% endraw %}</title>
     </head>
     <body></body>
 </html>
 {% endhighlight %}
 
+begitulah cara kerja liquid pada jekyll, dan jika ingin mengganti judul, tidak perlu lagi mengedit file html melainkan edit **title** yang ada di file `_config.yml`, maka liquid akan membaca value yg kita ubah secara otomatis.
+
+## Kesimpulan
+Kurang lebih seperti itu proses pembuat website pribadi ini, sebenarnya belum selesai dan masih banyak hal yang harus ditulis, *tapi yaa lagi malas menulis aja hehe*, tapi intinya jika sudah mengetahui dasar cara kerja jekyll maka tinggal memasukkan file desain web ke folder yang sudah dibuatkan, contoh untul file **HTML** taruh ke folder `_layouts/`, jika didalam file web desain memerlukan file html lain secara terpisah maka taruh file tersebut ke folder `_includes/`, dan untuk file stylesheet atau file **CSS** taruh ke folder `assets/css/` dan begitu seterusnya. Tulisan ini akan diperbarui jika ada niat.
