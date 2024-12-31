@@ -215,8 +215,7 @@ p a.tengah.lightbox-image { // gambar rata tengah tanpa class .p-gambar
 // END Lightbox
 
 // Codeblock
-li code.language-plaintext,
-p code.language-plaintext { // codeblock inline
+:is(li, p) code.language-plaintext { // codeblock inline
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
     color: var(--bg-dark);
@@ -241,7 +240,7 @@ figure.highlight pre {
     padding: .5rem 1rem .5rem 1rem;
     margin-top: 3.1rem;
     overflow-x: auto;
-    background-color: var(--bg-dark);
+    background-color: var(--color-box-dark);
 }
 
 figure.highlight pre table {
@@ -255,7 +254,7 @@ figure.highlight pre pre{
 figure td pre.lineno { // nomor baris sebelah kiri didalam tag pre
     user-select: none;
     color: var(--color-linenum);
-    background-color: var(--bg-dark);
+    background-color: var(--color-box-dark);
     padding: 0;
     box-sizing: border-box;
 }
@@ -265,12 +264,12 @@ figure td.code pre { // tempat code didalam pre
 }
 
 figure td.code { // tempat code didalam pre
-    background-color: var(--bg-dark) ;
+    background-color: var(--color-box-dark);
     padding-left: 0;
 }
 
 figure td.gutter.gl { // tempat code didalam pre
-    background-color: var(--bg-dark);
+    background-color: var(--color-box-dark);
 }
 
 figure.highlight::before { // tulisan "file" sebelun nama file atau dir

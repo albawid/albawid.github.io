@@ -65,6 +65,8 @@ body { // trik agar footer tidak collapse ketika tidak ada content pake flex
 
 // colorscheme
 @import '_addon/gruvbox.scss';
+// tombol dark mode
+@import '_addon/dark-mode.scss';
 // Font import google
 @import '_addon/font.scss';
 // bar navigasi
@@ -184,10 +186,10 @@ body { // trik agar footer tidak collapse ketika tidak ada content pake flex
 	}
 }
 
-span.peringatan { // peringatan tombol search belom jadi hahaha
-	color: var(--label-gambar);
-	font-size: .9rem;
-	font-style: italic;
-	position: relative;
-	top: -1.5rem;
-}
+// span.peringatan { // peringatan tombol search belom jadi hahaha
+// 	color: var(--label-gambar);
+// 	font-size: .9rem;
+// 	font-style: italic;
+// 	position: relative;
+// 	top: -1.5rem;
+// }

@@ -14,6 +14,10 @@ input#search-input {
     border-bottom: 2px solid var(--oren-gelap);
 }
 
+input#search-input:focus {
+    color: var(--color-headline);
+}
+
 input#search-input::placeholder {
     font-size: .9rem;
     font-style: italic;

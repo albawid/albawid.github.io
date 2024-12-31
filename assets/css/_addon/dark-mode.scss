@@ -1,0 +1,332 @@
+// Tombol Dark mode
+button#btn-dark {
+    display: none;
+    background-color: transparent;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 999;
+}
+
+body.dark-mode #btn-dark .dark-light {
+    color: var(--color-sosmed-dark);
+    font-size: 2rem;
+}
+
+// HOME LAYOUT 
+body.dark-mode {
+    background-color: var(--bg-dark);
+}
+
+body.dark-mode .pp img {
+    border: 3px solid var(--oren-cerah);
+    box-shadow: 4px 4px 0px var(--oren-cerah);
+}
+
+body.dark-mode .deskripsi {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .deskripsi h2 {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .deskripsi p {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .icon-sosmed a {
+    color: var(--color-sosmed-dark);
+}
+
+body.dark-mode .icon-sosmed a:hover {
+    color: var(--color-hover-dark);
+}
+
+// body.dark-mode .scroll-bawah {
+//     color: var(--color-sosmed-dark);
+// }
+
+body.dark-mode .container-dua h1 {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .post .pre {
+    background-color: var(--color-box-shadow-dark);
+}
+
+body.dark-mode .post .box {
+    background-color: var(--color-box-dark);
+    border: 2px solid var(--color-box-shadow-dark);
+}
+
+body.dark-mode .post h2 {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .post h4 {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .post .preview {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .post span p {
+    background-color: var(--bg-tag-dark);
+    color: var(--fg-tag-dark);
+}
+
+body.dark-mode .pre-lainnya {
+    background-color: var(--color-box-shadow-dark);
+}
+
+body.dark-mode .lainnya {
+    background-color: var(--color-box-dark);
+    border: 2px solid var(--color-box-shadow-dark);
+}
+
+body.dark-mode .project .pre {
+    background-color: var(--color-box-shadow-dark);
+}
+
+body.dark-mode .project .box {
+    background-color: var(--color-box-dark);
+    border: 2px solid var(--color-box-shadow-dark);
+}
+
+body.dark-mode .project h2 {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .project p {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .project h4 {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode footer p {
+    background-color: var(--bg-footer-dark);
+}
+
+body.dark-mode footer a.inline-link  {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode footer a.inline-link:before  {
+    background-color: var(--oren-cerah-dark);
+}
+
+// Navbar
+body.dark-mode .navbar {
+    box-shadow: 4.2px 4.2px 0 var(--color-box-shadow-dark);
+    border: 2px solid var(--color-box-shadow-dark);
+}
+
+body.dark-mode .navbar a {
+    color: var(--color-sosmed-dark);
+}
+
+body.dark-mode .navbar a:hover {
+	color: var(--color-hover-dark);
+}
+
+body.dark-mode .navbar a.aktif {
+	color: var(--color-hover-dark);
+}
+
+// TOC POST aka Table of Content aka daftar isi
+body.dark-mode .content-post .toc__list:after{
+    background-color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-post .toc__list:before {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .content-post .toc__list{
+    border: 1px solid var(--oren-cerah-dark);
+    background-color: var(--color-box-dark);
+}
+
+body.dark-mode .content-post li.toc-entry.toc-h1:before {
+    background-color: var(--color-headline-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+body.dark-mode .content-post li.toc-entry.toc-h3:before {
+    background-color: var(--color-headline-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+body.dark-mode .content-post li.toc-entry.toc-h2:before {
+    background-color: var(--color-box-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+// POST LAYOUT
+body.dark-mode .content-post {
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .content-post :is(h1, h2, h3) {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .content-post .tag-post {
+    background-color: var(--bg-tag-dark);
+    color: var(--fg-tag-dark);
+}
+
+body.dark-mode .content-post a {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-post a:before {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-post blockquote {
+    background-color: var(--blockquote);
+    border-left: 5px solid var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-post blockquote::before {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-post :is(li, p) code.language-plaintext {
+    color: var(--color-text-dark);
+    background-color: var(--bg-tag-dark);
+}
+
+// LIST POST LAYOUT
+body.dark-mode .blog .box-shadow {
+    background-color: var(--color-box-shadow-dark);
+}
+
+body.dark-mode .blog .box {
+    background-color: var(--color-box-dark);
+	border: 2px solid var(--color-box-shadow-dark);
+}
+
+body.dark-mode .blog h1.judul-post-blog-h1 {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .blog h2.judul-post-blog {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .blog h4 {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .blog .preview {
+    color: var(--color-headline-p-dark);
+}
+
+body.dark-mode .blog span p {
+    color: var(--fg-tag-dark);
+    background-color: var(--bg-tag-dark);
+}
+
+// SEARCHBOX
+body.dark-mode .blog input#search-input {
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--oren-gelap);
+}
+
+body.dark-mode .blog input#search-input:focus {
+    color: var(--fg-footer-light);
+}
+
+body.dark-mode .blog ul#results-container {
+    color: var(--color-headline-dark);
+}
+
+// LIST PROJECT LAYOUT
+body.dark-mode .project h1.judul-blog-project-h1 {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .project li.box-shadow {
+    background-color: var(--color-box-shadow-dark);
+}
+
+// Project Artikel Layout
+body.dark-mode .content-project :is(h1, h2, h3) {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .content-project {
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .content-project a {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-project a:before {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-project blockquote {
+    background-color: var(--blockquote);
+    border-left: 5px solid var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-project blockquote::before {
+    color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-project :is(li, p) code.language-plaintext {
+    color: var(--color-text-dark);
+    background-color: var(--bg-tag-dark);
+}
+
+// TOC Project aka Table of Content aka daftar isi
+body.dark-mode .content-project .toc__list:after{
+    background-color: var(--oren-cerah-dark);
+}
+
+body.dark-mode .content-project .toc__list:before {
+    color: var(--color-headline-dark);
+}
+
+body.dark-mode .content-project .toc__list{
+    border: 1px solid var(--oren-cerah-dark);
+    background-color: var(--color-box-dark);
+}
+
+body.dark-mode .content-project li.toc-entry.toc-h1:before {
+    background-color: var(--color-headline-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+body.dark-mode .content-project li.toc-entry.toc-h3:before {
+    background-color: var(--color-headline-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+body.dark-mode .content-project li.toc-entry.toc-h2:before {
+    background-color: var(--color-box-dark);
+    border: 1px solid var(--color-headline-dark );
+}
+
+// TABEL LAYOUT
+body.dark-mode table thead {
+    color: var(--bg-light);
+    background-color: var(--oren-gelap); 
+}
+
+body.dark-mode tbody tr:nth-of-type(odd) { // odd = ganjil
+    background-color: var(--color-box-dark);
+}
+
+body.dark-mode tbody tr:nth-of-type(even) { // even = genap
+    background-color: var(--blockquote);
+}

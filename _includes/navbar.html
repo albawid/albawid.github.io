@@ -3,5 +3,6 @@
         {% for navigasi in site.data.navigation %}
             <a href="{{ navigasi.url }}" class="{% if navigasi.url == page.url %}aktif{% endif %}"><i class="{{ navigasi.icon }}"></i></a>
         {% endfor %}
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
     </div>
 </navbar>

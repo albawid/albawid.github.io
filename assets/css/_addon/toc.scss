@@ -1,4 +1,4 @@
-// toc tidak ada toc.html dikarenakan class sudah tertulis di config.yml
+// toc tidak ada file toc.html dikarenakan class sudah tertulis di config.yml
 
 .toc__list:before {
     width: fit-content;
@@ -8,6 +8,7 @@
     margin: 0 auto 1.3rem;
     font-weight: bold;
     font-size: 1.5rem;
+    color: var(--bg-dark);
 }
 
 .toc__list:after {

@@ -48,6 +48,8 @@ table {
 
 //colorscheme
 @import '_addon/gruvbox';
+// tombol dark mode
+@import '_addon/dark-mode.scss';
 // Font
 @import '_addon/font';
 //kustom scrollbar
@@ -88,17 +90,17 @@ body {
     box-shadow: 4px 4px 0px var(--color-box-shadow);
 }
 
-.deskripsi {
+.deskripsi { // Aku seorang ...
     height: fit-content;
     color: var(--color-headline);
     box-sizing: border-box;
     padding: 1.9rem;
 }
 
-.deskripsi h2 {
+.deskripsi h2 { // Hai aku albawid
     font-size: 1.3rem;
     letter-spacing: .05rem;
-    color: var(--color-tagline);
+    color: var(--oren-gelap);
 }
 
 .deskripsi h1 {
@@ -108,7 +110,7 @@ body {
     margin-block: 1rem;
 }
 
-.deskripsi p {
+.deskripsi p { // yang suka ...
     font-size: 1.1rem;
     line-height: 1.6rem;
     letter-spacing: .05rem;
@@ -127,23 +129,34 @@ body {
     transition: all 200ms;
 }
 
+.icon-sosmed #btn-dark {
+    display: inline-block;
+}
+
+.icon-sosmed #btn-dark .dark-light {
+    cursor: pointer;
+    color: var(--color-sosmed);
+    font-size: 1.9rem;
+}
+
 .icon-sosmed a:hover {
     color: var(--color-hover);
 }
 
-.scroll-bawah {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-block: 1.5rem;
-    font-size: 1.5rem;
-    font-style: italic;
-    text-transform: capitalize;
-    text-align: center;
-    color: var(--color-sosmed);
-    opacity: .7;
-}
+// Panah kearah bawah di tampilan tablet kebawah
+// .scroll-bawah {
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     padding-block: 1.5rem;
+//     font-size: 1.5rem;
+//     font-style: italic;
+//     text-transform: capitalize;
+//     text-align: center;
+//     color: var(--color-sosmed);
+//     opacity: .7;
+// }
 
 /* Container-dua */
 .container-dua {
@@ -153,7 +166,7 @@ body {
     // position: relative;
 }
 
-.container-dua h1 {
+.container-dua h1 { // POST
     margin-block: 2.2rem;
     font-size: 1.5rem;
     font-weight: bold;
@@ -163,7 +176,7 @@ body {
     position: relative;
 }
 
-.container-dua h1:after {
+.container-dua h1:after { // garis bawah POST
     content: '';
     background-color: var(--color-hover);
     width: 65%;
@@ -213,7 +226,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    // cursor: pointer;
 }
 
 .isi-box, p {
@@ -230,7 +242,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    // -webkit-line-clamp: 2; (deprecated tanggal 31/12/2024)
+    line-clamp: 2;
     -webkit-box-orient: vertical;
 
     color: var(--color-judul);
@@ -358,7 +371,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    // -webkit-line-clamp: 1; (deprecated tanggal 31/12/2024)
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     
     color: var(--color-judul);

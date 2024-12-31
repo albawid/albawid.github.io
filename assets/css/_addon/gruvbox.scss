@@ -1,10 +1,11 @@
 :root {
-    /* Light Mode */
     --oren-cerahhh: #fbd8c1;
     --oren-cerah: #d65d0e;
     --oren-gelap: #af3a03;
+
+    /* Light Mode */
     --bg-light: #f9f5d7;
-    --bg-dark: #282828;
+
     --label-gambar: #928374;
     --bg-code-inline: #fdf3ed;
     --bg-footer-light: var(--color-headline);
@@ -12,8 +13,6 @@
     --bg-blockquote: #ebdbb2;
     --color-heart: #fb4934;
     --tes-border: 1px solid black;
-    /* --bg-footer-dark: ;
-    --fg-footer-dark: ; */
 
     --color-tagline: var(--oren-cerah);
     --color-headline: #3c3836;
@@ -27,4 +26,19 @@
     --color-judul-p: var(--color-headline-p);
     --color-text: var(--color-headline);
     --color-linenum: var(--fg-footer-light);
+
+    // Dark Mode
+    --oren-cerah-dark: #fe8019;
+    --bg-dark: #1d2021;
+    --color-text-dark: #d5c4a1;
+    --color-headline-dark: #ebdbb2;
+    --color-headline-p-dark: #bdae93;
+    --color-sosmed-dark: #a89984;
+    --color-hover-dark: var(--oren-cerah);
+    --color-box-dark: #282828;
+    --color-box-shadow-dark: #504945;
+    --bg-tag-dark: #32302f;
+    --fg-tag-dark: var(--oren-cerah-dark);
+    --bg-footer-dark: var(--color-box-dark);
+    --blockquote: #3c3836;
 }
