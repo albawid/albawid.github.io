@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | proses membuat website part 3</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">proses membuat website part 3</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 12 September, 2023 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># Jekyll</p>
+    
+      
+      <p class="tag-post"># website</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-entry toc-h1"><a href="#latar-masalah">Latar Masalah</a></li>
+<li class="toc-entry toc-h1"><a href="#solusi">Solusi</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#menggunakan-jekyll-deploy-action">Menggunakan jekyll-deploy-action</a></li>
+<li class="toc-entry toc-h2"><a href="#buat-folder-dan-file">Buat Folder dan File</a></li>
+<li class="toc-entry toc-h2"><a href="#edit-build-jekyllyml">Edit build-jekyll.yml</a></li>
+<li class="toc-entry toc-h2"><a href="#buat-branch-baru">Buat branch baru</a></li>
+<li class="toc-entry toc-h2"><a href="#deploy-ke-github">Deploy ke Github</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-entry toc-h1"><a href="#referensi">Referensi</a></li>
+</ul><h1 id="pendahuluan">
+<a class="anchor" href="#pendahuluan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pendahuluan</h1>
+<p>Memasuki tahap akhir yaitu proses meng-online-kan atau bahasa kerennya <em>Deployment</em> website yang sudah dibuat agar bisa diakses secara online melalui internet, sebenarnya bisa dengan mudah kita upload semua file web yang menggunakan jekyll tersebut ke <em>Web Hosting Provider</em> seperti dibawah ini:</p>
+<ol>
+  <li>Niagahoster</li>
+  <li>Hostinger ID</li>
+  <li>Kinsta</li>
+  <li>Dan lain-lain</li>
+</ol>
+
+<h1 id="latar-masalah">
+<a class="anchor" href="#latar-masalah" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latar Masalah</h1>
+<p>Namun jika menggunakan Web hosting provider diatas kita akan merepotkan jika ingin memperbarui website yang sudah online dikarenakan terdapat perubahan pada website secara lokal, maka kita harus membuka web hosting yang digunakan, kemudian upload lagi file yang ingin diperbarui secara manual, oleh karena itu disini saya menggunakan <a href="https://pages.github.com/" target="_blank">Github Pages</a> sebagai web hosting, tetapi akan ada satu masalah lagi yaitu plugin <code class="language-plaintext highlighter-rouge">jekyll-toc</code> yang digunakan untuk membuat daftar isi secara otomatis pada website kali ini tidak men-support github pages, seperti yang dibilang oleh <a href="https://github.com/toshimaru/jekyll-toc/issues/29" target="_blank">toshimaru</a> selaku developer jekyll-toc.</p>
+
+<h1 id="solusi">
+<a class="anchor" href="#solusi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solusi</h1>
+<p>Disini saya anggap kalian sudah install git dan membuat repository untuk website</p>
+
+<h2 id="menggunakan-jekyll-deploy-action">
+<a class="anchor" href="#menggunakan-jekyll-deploy-action" aria-hidden="true"><span class="octicon octicon-link"></span></a>Menggunakan jekyll-deploy-action</h2>
+<p>Untuk mengakali hal tersebut disini saya akan menggunakan <a href="https://github.com/jeffreytse/jekyll-deploy-action/tree/master" target="_blank">jekyll-deploy-action</a> sebagai alat untuk membantu proses deploy ke Github Pages.</p>
+
+<h2 id="buat-folder-dan-file">
+<a class="anchor" href="#buat-folder-dan-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buat Folder dan File</h2>
+<p>Buka folder website kita kemudian buat folder <code class="language-plaintext highlighter-rouge">.github</code> dan didalam nya buat lagi folder <code class="language-plaintext highlighter-rouge">workflows</code>, lalu buat file dengan nama sesuai keinginan kalian tapi disini saya akan menggunakan <code class="language-plaintext highlighter-rouge">build-jekyll.yml</code></p>
+
+<h2 id="edit-build-jekyllyml">
+<a class="anchor" href="#edit-build-jekyllyml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit build-jekyll.yml</h2>
+<p>Buka file <code class="language-plaintext highlighter-rouge">build-jekyll.yml</code> lalu paste code dibawah kemudian save</p>
+
+<figure class="highlight" file="build-jekyll.yml"><pre><code class="language-yml" data-lang="yml"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td>
+<td class="code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">Build and Deploy to Github Pages</span> <span class="c1"># Bisa diganti sesuai keinginan</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span> <span class="c1"># branch utama kalian, biasanya master atau main</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build_and_deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      <span class="c1"># Use GitHub Actions' cache to cache dependencies on servers</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v3</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">path</span><span class="pi">:</span> <span class="s">vendor/bundle</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}</span>
+          <span class="na">restore-keys</span><span class="pi">:</span> <span class="pi">|</span>
+            <span class="s">${{ runner.os }}-gems-</span>
+      <span class="c1"># Use GitHub Deploy Action to build and deploy to Github</span>
+      <span class="c1"># For latest version: `jeffreytse/jekyll-deploy-action@master`</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">jeffreytse/jekyll-deploy-action@v0.5.0</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">provider</span><span class="pi">:</span> <span class="s1">'</span><span class="s">github'</span>         <span class="c1"># Default is github</span>
+          <span class="na">token</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span> <span class="c1"># It's your Personal Access Token(PAT)</span>
+          <span class="na">ssh_private_key</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>        <span class="c1"># It's your SSH private key (SSH approach)</span>
+          <span class="na">repository</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>             <span class="c1"># Default is current repository</span>
+          <span class="na">branch</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gh-pages'</span>         <span class="c1"># Default is gh-pages for github provider</span>
+          <span class="na">jekyll_src</span><span class="pi">:</span> <span class="s1">'</span><span class="s">./'</span>           <span class="c1"># Default is root directory</span>
+          <span class="na">jekyll_cfg</span><span class="pi">:</span> <span class="s1">'</span><span class="s">_config.yml'</span>  <span class="c1"># Default is _config.yml</span>
+          <span class="na">jekyll_baseurl</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>         <span class="c1"># Default is according to _config.yml</span>
+          <span class="na">bundler_ver</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=0'</span>         <span class="c1"># Default is latest bundler version</span>
+          <span class="na">cname</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>                  <span class="c1"># Default is to not use a cname</span>
+          <span class="na">actor</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>                  <span class="c1"># Default is the GITHUB_ACTOR</span>
+          <span class="na">pre_build_commands</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>     <span class="c1"># Installing additional dependencies (Arch Linux)</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h2 id="buat-branch-baru">
+<a class="anchor" href="#buat-branch-baru" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buat branch baru</h2>
+<p>Jika kalian belum mempunyai branch <code class="language-plaintext highlighter-rouge">gh-pages</code>, kalian bisa membuatnya dengan cara seperti dibawah</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--orphan</span> gh-pages <span class="c"># untuk membuat dan berpindah ke branch baru</span>
+<span class="nv">$ </span>git <span class="nb">rm</span> <span class="nt">-rf</span> <span class="nb">.</span> <span class="c"># menghapus semua isi branch baru</span>
+<span class="nv">$ </span>git commit <span class="nt">--allow-empty</span> <span class="nt">-m</span> <span class="s2">"initial commit"</span>
+<span class="nv">$ </span>git push origin gh-pages
+<span class="nv">$ </span>git checkout main <span class="c"># berpindah kembali ke branch main</span>
+</code></pre></div></div>
+
+<h2 id="deploy-ke-github">
+<a class="anchor" href="#deploy-ke-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deploy ke Github</h2>
+<p>Memasuki tahap akhir yaitu proses deploy ke github atau bahasa jikda dalam bahasa awam proses upload file website ke github melalui terminal dengan cara seperti dibawah</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span> <span class="c"># untuk menambahkan semua file kedalam "daftar upload"</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"sesuai keinginan"</span> <span class="c"># menulis informasi terhadap file yang ada di "daftar upload"</span>
+<span class="nv">$ </span>git push origin main <span class="c"># upload semua file yang ada di "daftar upload" ke branch main</span>
+</code></pre></div></div>
+
+<p>Kemudian ubah sumber website ke branch gh-pages dengan cara buka repository website <strong>Settings</strong> &gt; <strong>Pages</strong> &gt; Pilih <strong>gh-pages</strong> sebagai sumber.</p>
+
+<p class="p-gambar tengah" label="Menggunakan gh-pages sebagai sumber website"><a href="/assets/img/post/proses-buat-web-p3/branch-gh-pages.png"><img src="/assets/img/post/proses-buat-web-p3/branch-gh-pages.png" alt="branch-gh-pages"></a></p>
+
+<h1 id="kesimpulan">
+<a class="anchor" href="#kesimpulan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kesimpulan</h1>
+<p>Gimana? menggunakan cara diatas jauh lebih mudah bukan, bahkan jika ingin memperbarui website kita hanya perlu push ke branch main saja, dan branch gh-pages akan secara otomatis mengikuti branch main. Untuk cara kerja sendiri <code class="language-plaintext highlighter-rouge">jekyll-deploy-action</code> akan me-render semua file web jekyll kita kemudian secara otomatis deploy ke branch <code class="language-plaintext highlighter-rouge">gh-pages</code> sebagai website yang sudah jadi, sehingga branch <code class="language-plaintext highlighter-rouge">main</code> hanya akan digunakan sebagai sumber dari branch gh-pages.</p>
+
+<h1 id="referensi">
+<a class="anchor" href="#referensi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referensi</h1>
+<p><a href="https://github.com/toshimaru/jekyll-toc/issues/29">https://github.com/toshimaru/jekyll-toc/issues/29</a>
+<a href="https://github.com/jeffreytse/jekyll-deploy-action/tree/master">https://github.com/jeffreytse/jekyll-deploy-action/tree/master</a></p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>

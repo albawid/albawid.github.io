@@ -1,0 +1,140 @@
+.project {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.project ul#list-project.disable {
+    display: none;
+}
+
+.project h1.judul-blog-project-h1 {
+    display: inline-block;
+	position: relative;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+}
+
+.project h1.judul-blog-project-h1:after {
+	position: absolute;
+	content: '';
+	bottom: -2px;
+	left: calc(50% - 34%);
+	width: 65%;
+	height: 3px;
+	background-color: var(--oren-cerah);
+}
+
+.project h1.judul-blog-project-h1:before {
+	content: '';
+}
+
+.project h2.judul-blog-project:before {
+    content: '';
+}
+
+.project h2.judul-blog-project:after {
+    position: static;
+}
+
+.project h2.judul-blog-project { //judul project
+    display: inline-block;
+	margin: 0 1rem 0 1rem;
+    padding-top: .6rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: left;
+    line-height: 1.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-judul);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.project h4.tanggal-blog-project { //tanggal
+    padding-block: .6rem;
+    margin: 0 1rem 0 1rem;
+    text-align: left;
+    color: var(--color-judul-p);;
+}
+
+.project p.preview { // deskripsi project
+    display: inline-block;
+    margin: 0 1rem 0 1rem;
+    flex-grow: 1;
+    font-size: 1.2rem;
+    text-align: left;
+    line-height: 1.6rem;
+    color: var(--color-headline-p);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // display: -webkit-box; // bentrok dengan display: inline-block;
+    // -webkit-line-clamp: 3;
+    // -webkit-box-orient: vertical;
+}
+
+.project p.preview:first-letter {
+    text-transform: capitalize;
+}
+
+.project ul {
+    margin: auto;
+    // border: var(--tes-border);
+}
+
+.project li {
+    list-style-type: none;
+    // border: var(--tes-border);
+}
+
+.project li.box-shadow {
+    position: relative;
+	width: 330px;
+	height: 330px;
+	background-color: var(--color-box-shadow);
+	margin-bottom: 1rem;
+	margin-inline: auto;
+}
+
+.project a.pre-box {
+    position: static;
+    text-decoration: none;
+    color: var(--color-hover);
+    text-wrap: wrap;
+}
+
+.project a:before {
+    position: static;
+}
+
+.project .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 330px;
+    height: 330px;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+    border: 2px solid var(--color-box-border);
+    background-color: var(--color-box);
+    transition: all 70ms;
+}
+
+.project .box:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+

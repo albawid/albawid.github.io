@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | Pengenalan markdown dan contoh penggunaan</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">Pengenalan markdown dan contoh penggunaan</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 20 September, 2023 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># markdown</p>
+    
+      
+      <p class="tag-post"># tips</p>
+    
+      
+      <p class="tag-post"># trik</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-entry toc-h1"><a href="#kenapa-harus-markdown">Kenapa Harus Markdown?</a></li>
+<li class="toc-entry toc-h1"><a href="#mencoba-markdown">Mencoba Markdown</a></li>
+<li class="toc-entry toc-h1"><a href="#cara-kerja-markdown">Cara Kerja Markdown</a></li>
+<li class="toc-entry toc-h1"><a href="#contoh-penggunaan-markdown">Contoh Penggunaan Markdown</a></li>
+<li class="toc-entry toc-h1"><a href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-entry toc-h1"><a href="#referensi">Referensi</a></li>
+</ul><h1 id="pendahuluan">
+<a class="anchor" href="#pendahuluan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pendahuluan</h1>
+<p>Apa itu Markdown? Markdown adalah bahasa markup ringan yang dapat digunakan untuk menambahkan elemen pemformatan ke dokumen teks biasa. Dibuat oleh <a href="https://daringfireball.net/projects/markdown/" target="_blank">John Gruber</a> pada tahun 2004, Markdown sekarang menjadi salah satu bahasa markup paling populer di dunia.</p>
+
+<h1 id="kenapa-harus-markdown">
+<a class="anchor" href="#kenapa-harus-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kenapa Harus Markdown?</h1>
+<p>Kalian mungkin bertanya-tanya mengapa kebanyakan orang menggunakan Markdown dan bukan <a href="https://en.wikipedia.org/wiki/WYSIWYG" target="_blank">WYSIWYG</a>. Berikut ini mungkin alasan yang paling populer:</p>
+
+<ol>
+  <li>Markdown dapat digunakan untuk segala hal. Orang-orang menggunakannya untuk membuat website, dokumen, catatan, buku, presentasi, email, dan dokumentasi teknis atau biasa dikenal <em>Doc Files</em>.</li>
+  <li>Markdown dapat digunakan di situs seperti Reddit, GitHub, Disqus, dan sekarang Facebook juga sudah support Markdown, dan masih banyak aplikasi desktop dan berbasis web yang mendukungnya.</li>
+</ol>
+
+<h1 id="mencoba-markdown">
+<a class="anchor" href="#mencoba-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mencoba Markdown</h1>
+<p>Cara yang paling mudah dan gratis mencoba markdown adalah dengan menggunakan tool online yang sudah disediakan <a href="https://dillinger.io/" target="_blank">Dilinger</a>.<br>
+<strong>Dilinger</strong> merupakan salah satu markdown editor terbaik dan gratis, tanpa perlu download, cukup buka di PC atau Handphone dan mulai mengetik disisi kiri, dan hasil yang sudah di-render akan berada disisi kanan.</p>
+
+<p class="p-gambar tengah" label="Dilinger"><a href="/assets/img/post/pengenalan-markdown/dillinger.png"><img src="/assets/img/post/pengenalan-markdown/dillinger.png" alt="Dilinger"></a></p>
+
+<h1 id="cara-kerja-markdown">
+<a class="anchor" href="#cara-kerja-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara Kerja Markdown</h1>
+<p><strong>Dillinger</strong> membuat menulis di Markdown menjadi lebih mudah karena menyembunyikan hal-hal yang terjadi di balik layar, tetapi ada baiknya jika kita mencoba mengeksplor bagaimana cara kerja markdown secara umum.<br>
+<br>
+Ketika kalian menulis di Markdown, teks disimpan dalam file <a href="https://id.wikipedia.org/wiki/Teks_biasa" target="_blank">plaintext</a> yang menggunakan format <code class="language-plaintext highlighter-rouge">.md</code> atau <code class="language-plaintext highlighter-rouge">.markdown</code>. Terus bagaimana file berformat Markdown dikonversi menjadi HTML atau dokumen yang siap cetak?<br>
+<br>
+Jawaban singkatnya adalah kalian membutuhkan aplikasi Markdown editor yang mampu memproses file Markdown. Ada banyak aplikasi yang tersedia, mulai dari script sederhana sampai aplikasi desktop yang mirip seperti Microsoft Word. Terlepas dari perbedaan visualnya, semua aplikasi mempunyai cara kerja yang sama. Seperti Dillinger, semuanya mengonversi teks berformat Markdown ke HTML sehingga dapat ditampilkan di browser web.<br>
+<br>
+Aplikasi Markdown editor menggunakan sesuatu yang disebut prosesor Markdown untuk mengambil teks berformat Markdown dan me-render-nya ke format HTML. Pada saat itu, dokumen kalian dapat ditampilkan di browser web atau digabungkan dengan stylesheet dan dicetak. Untuk gambaran cara kerja markdwon kurang lebih seperti dibawah ini</p>
+
+<blockquote>
+  <p>Sebernarnya aplikasi Markdown Editor dan prosesor Markdown adalah dua komponen yang terpisah. Tapi untuk kemudahan, saya menggabungkannya menjadi satu elemen (“Markdown App”) pada gambar di bawah ini.</p>
+</blockquote>
+
+<p class="p-gambar tengah" label="Cara Kerja Markdown"><a href="/assets/img/post/pengenalan-markdown/markdown-flowchart.png"><img src="/assets/img/post/pengenalan-markdown/markdown-flowchart.png" alt="markdown-flowchart"></a></p>
+
+<p>Dari sudut pandang kalian, mungkin prosesnya terlihat sedikit ribet, tergantung pada aplikasi yang kalian gunakan. Sebagai contoh, Dillinger pada dasarnya menggabungkan langkah 1 sampai 3 ke dalam satu tampilan, yang hanya kalian lakukan adalah mengetik di panel kiri dan output yang dirender secara ajaib muncul di panel kanan.</p>
+
+<h1 id="contoh-penggunaan-markdown">
+<a class="anchor" href="#contoh-penggunaan-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contoh Penggunaan Markdown</h1>
+<p>Seperti yang sudah disinggung diatas, Markdown adalah cara yang cepat dan mudah untuk membuat catatan, membuat konten untuk situs web, dan menghasilkan dokumen yang siap cetak. Tidak perlu waktu lama untuk mempelajari sintaks Markdown, dan setelah kalian tahu cara menggunakannya, kalian dapat menulis menggunakan Markdown di mana saja. Kebanyakan orang menggunakan Markdown untuk membuat konten untuk web, tetapi Markdown juga bagus untuk memformat segala sesuatu mulai dari pesan email hingga daftar belanjaan.<br>
+<br>
+Sebagai contoh penggunaan Markdown pada Jekyll yang saya gunakan saat ini, jika kalian ingin membuat daftar isi seberti dibawah ini</p>
+
+<p class="p-gambar tengah" label="Contoh membuat Daftar Isi"><a href="/assets/img/post/pengenalan-markdown/daftar-isi.png"><img src="/assets/img/post/pengenalan-markdown/daftar-isi.png" alt="daftar isi"></a></p>
+
+<p>Jika menggunakan HTML untuk mencapai hal tersebut, maka kalian harus mengetik code dibawah ini secara manual (<em>abaikan garis border dan lingkaran, karena itu masuk kedalam pseudo class</em>)</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h2&gt;</span>Daftar Isi<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Pendahuluan<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Kenapa Harus Markdown?<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Mencoba Markdown<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Cara Kerja Markdown<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Contoh Penggunaan Markdown<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Referensi<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>Dan jika dibandingkan dengan menggunakan markdown untuk mencapai hal yang sama</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Daftar Isi</span>
+<span class="p">1.</span> Pendahuluan
+<span class="p">2.</span> Kenapa Harus Markdown?
+<span class="p">3.</span> Mencoba Markdown
+<span class="p">4.</span> Cara Kerja Markdown
+<span class="p">5.</span> Contoh Penggunaan Markdown
+<span class="p">6.</span> Referensi
+</code></pre></div></div>
+
+<h1 id="kesimpulan">
+<a class="anchor" href="#kesimpulan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kesimpulan</h1>
+<p>Bisa kalian lihat perbedaan yang sangat signifikan antara menulis menggunakan markdown dan menggunakan html, bahkan jika kalian menggunakan markdown tidak perlu tau ilmu penulisan html, seperti yang sudah dikutip diatas markdown bisa di render ke dalam html menggunakan markdown app atau markdown editor.</p>
+
+<h1 id="referensi">
+<a class="anchor" href="#referensi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referensi</h1>
+<p><a href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a><br>
+<a href="https://en.wikipedia.org/wiki/Markdown">https://en.wikipedia.org/wiki/Markdown</a><br>
+<a href="https://www.markdownguide.org/getting-started">https://www.markdownguide.org/getting-started</a></p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>
