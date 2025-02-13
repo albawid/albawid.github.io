@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | membuat custom user snipet vscode</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">membuat custom user snipet vscode</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 13 September, 2023 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># vscode</p>
+    
+      
+      <p class="tag-post"># tips</p>
+    
+      
+      <p class="tag-post"># trik</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-entry toc-h1"><a href="#latar-masalah">Latar Masalah</a></li>
+<li class="toc-entry toc-h1"><a href="#persiapan">Persiapan</a></li>
+<li class="toc-entry toc-h1"><a href="#tutorial">Tutorial</a></li>
+<li class="toc-entry toc-h1"><a href="#hasil-akhir">Hasil Akhir</a></li>
+<li class="toc-entry toc-h1"><a href="#kesimpulan">Kesimpulan</a></li>
+</ul><h1 id="pendahuluan">
+<a class="anchor" href="#pendahuluan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pendahuluan</h1>
+<p>Halo para pembaca (<em>kalo ada haha</em>), yang berkarir sebagai <em>Developer</em> pasti tidak asing dengan code editor, ada banyak code editor yang populer salah satu nya adalah buatan Microsoft yaitu <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> atau biasanya disebut <strong>VSCode</strong>, fitur yang ditawarkan sangatlah banyak mulai dari fitur dasar dan wajib ada hampir di semua code editor adalah integerasi git, kebebasan memasang ekstensi, dan yang paling penting adalah kebebasan membuat kustom user <a href="https://en.wikipedia.org/wiki/Snippet_(programming)" target="_blank">snippet code</a>.</p>
+
+<h1 id="latar-masalah">
+<a class="anchor" href="#latar-masalah" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latar Masalah</h1>
+<p>Semua Code Editor pasti mempunyai fitur dimana jika kita mengetikkan huruf maka akan muncul beberapa pilihan kata atau saran, itu adalah apa yang disebut <strong>snippet</strong>, snippet tidak terbatas pada kata atau kalimat, namun juga template script.<br>
+<br>
+Tapi ada keadaan dimana suatu snippet tidak bekerja sesuai apa yang kita inginkan atau bahkan tidak ada snippet yang tersedia untuk project yang kita kerjakan. Oleh karena itu untuk kasus kali ini saya akan mencoba membuat kustom snippet code untuk <a href="https://jekyllrb.com/docs/front-matter/" target="_blank">frontmatter</a> file markdown yang ada di dalam jekyll, karena sebelumnya cukup kerepotan karena selalu menulis frontmatter dengan 8 baris yang berbeda di setiap post.</p>
+
+<h1 id="persiapan">
+<a class="anchor" href="#persiapan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Persiapan</h1>
+<p>Buka VSCode kemudian klik Icon <strong>Setting</strong> &gt; <strong>User Snippets</strong> lalu akan ada 3 pilihan</p>
+<ol>
+  <li>
+<strong>New Global Snippet File</strong> jika kalian ingin custom snippet berlaku untuk semua format file.</li>
+  <li>
+<strong>New Snipper File For project</strong> jika kalian ingin custom snippet hanya berlaku untuk project kalian saat ini.</li>
+  <li>Yang terakhir hanya untuk format file tertentu maka kalian bisa buat nama <strong>format-file</strong> dan diakhiri <strong>.json</strong> contoh
+    <ol>
+      <li>markdown.json</li>
+      <li>python.json</li>
+      <li>javascript.json</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Jika sudah maka akan terbuka tab kosong baru yang nantinya akan diisi kustom snippet, untuk sekarang biarkan seperti itu dan jangan ditutup.</p>
+
+<h1 id="tutorial">
+<a class="anchor" href="#tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tutorial</h1>
+<p>Buka <a href="https://snippet-generator.app/">https://snippet-generator.app/</a> kemudian ada beberapa kolom yang harus diisi:</p>
+<ol>
+  <li>
+<strong>Description</strong>, deskripsi tentang snippet yang kalian buat</li>
+  <li>
+<strong>Tab trigger</strong>, kata kunci untuk memunculkan snippet yang telah kalian buat</li>
+  <li>
+<strong>Your snippet</strong>, tempat membuat kustom snippet</li>
+</ol>
+
+<p>Snippet yang ingin saya buat kurang lebih seperti berikut</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">---</span><span class="w">
+</span><span class="err">layout:</span><span class="w"> </span><span class="err">$</span><span class="mi">1</span><span class="w">
+</span><span class="err">title:</span><span class="w"> </span><span class="s2">"$2"</span><span class="w">
+</span><span class="err">author:</span><span class="w"> </span><span class="err">$</span><span class="mi">3</span><span class="w">
+</span><span class="err">date:</span><span class="w"> </span><span class="err">$</span><span class="mi">4</span><span class="err">-$</span><span class="mi">5</span><span class="err">-$</span><span class="mi">6</span><span class="w">
+</span><span class="err">tags:</span><span class="w"> </span><span class="err">$</span><span class="mi">7</span><span class="w">
+</span><span class="err">excerpt:</span><span class="w"> </span><span class="err">$</span><span class="mi">8</span><span class="w">
+</span><span class="err">---</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>Perlu diketahui tanda “$” merupakan <strong>Placeholder</strong> yaitu untuk memudahkan kita berpindah baris hanya menggunakan tombol <code class="language-plaintext highlighter-rouge">tab</code> tanpa menggunakan kursor.</p>
+</blockquote>
+
+<p>Setelah itu Pilih VSCode di sebelah kanan dan copy script kemudian paste ke tab kosong yang tadi sudah kita buat lalu save file tersebut.</p>
+
+<figure class="highlight" file="markdown.json"><pre><code class="language-json" data-lang="json"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td>
+<td class="code"><pre><span class="nl">"Post Frontmatter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frontmatter"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"---"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"layout: $1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title: </span><span class="se">\"</span><span class="s2">$2</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author: $3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date: $4-$5-$6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tags: $7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excerpt: $8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"---"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Post Frontmatter"</span><span class="w">
+</span><span class="p">}</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h1 id="hasil-akhir">
+<a class="anchor" href="#hasil-akhir" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hasil Akhir</h1>
+<p>Setelah semua selesai sekarang coba ketik kata kunci yang sudah dibuat tadi untuk memunculkan kustom snippet maka jika tidak ada kendalam akan tampil seperti berikut</p>
+
+<p class="p-gambar tengah" label="Hasil akhir pembuatan kustom snippet"><a href="/assets/img/post/membuat-kustom-snippet/snippet.gif"><img src="/assets/img/post/membuat-kustom-snippet/snippet.gif" alt="snippet.gif"></a></p>
+
+<h1 id="kesimpulan">
+<a class="anchor" href="#kesimpulan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kesimpulan</h1>
+<p>seperti itulah cara membuat kustom snippet code, sangat mudah jika menggunakan tool online dengan begini kita bisa membuat snippet apapun itu, tidak terbatas pada script tapi juga bisa digunakan untuk kamus jika kalian pernah menggunakan fitur pustaka yang ada di keyboard virtual kalian di handphone.</p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | proses membuat website part 2</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">proses membuat website part 2</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 11 September, 2023 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># Jekyll</p>
+    
+      
+      <p class="tag-post"># website</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-entry toc-h1"><a href="#instalasi-jekyll">Instalasi Jekyll</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#aplikasi-yang-dibutuhkan">Aplikasi yang dibutuhkan</a></li>
+<li class="toc-entry toc-h2"><a href="#langkah---langkah-install-jekyll">Langkah - Langkah Install Jekyll</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#install-jekyll-via-rubyinstaller">Install Jekyll via RubyInstaller</a></li>
+<li class="toc-entry toc-h3"><a href="#install-jekyll-via-bash-windows">Install Jekyll via Bash Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#menggunakan-jekyll">Menggunakan Jekyll</a></li>
+<li class="toc-entry toc-h1"><a href="#integrasi-jekyll-dan-website">Integrasi Jekyll dan website</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#buat-beberapa-folder-dan-file">Buat beberapa folder dan file</a></li>
+<li class="toc-entry toc-h2"><a href="#edit-_configyml-sesuai-kebutuhan">Edit _config.yml sesuai kebutuhan</a></li>
+<li class="toc-entry toc-h2"><a href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
+</ul><h1 id="pendahuluan">
+<a class="anchor" href="#pendahuluan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pendahuluan</h1>
+<p>Melanjutkan part sebelumnya mengenai pembahasan proses pembuatan website, pada tahap ini memasuki integrasi jekyll dengan file website. Sama seperti di part 1 kali ini saya hanya menuliskan code yang penting saja dan tidak akan mencantumkan code secara keseluruhan agar post tetap enak untuk dibaca.</p>
+
+<h1 id="instalasi-jekyll">
+<a class="anchor" href="#instalasi-jekyll" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalasi Jekyll</h1>
+<p>Karena Jekyll merupakan <a href="https://jekyllrb.com/docs/ruby-101/#gems">RubyGem</a> maka dari itu jekyll bisa diinstall hampir di semua sistem operasi asalkan sudah menginstall beberapa aplikasi yang dibutuhkan jekyll dibawah ini.</p>
+
+<h2 id="aplikasi-yang-dibutuhkan">
+<a class="anchor" href="#aplikasi-yang-dibutuhkan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aplikasi yang dibutuhkan</h2>
+<ul>
+  <li>
+<a href="https://www.ruby-lang.org/en/downloads/">Ruby</a> versi <strong>2.5.0</strong> atau lebih baru, gunakan perintah <code class="language-plaintext highlighter-rouge">ruby -v</code> untuk memastikan versi ruby.</li>
+  <li>
+<a href="https://rubygems.org/pages/download">RubyGem</a> cek versi gem <code class="language-plaintext highlighter-rouge">gem -v</code> pastikan menggunakan versi terbaru.</li>
+  <li>
+<a href="https://gcc.gnu.org/install/">GCC</a> dan <a href="https://www.gnu.org/software/make/">Make</a> gunakan <code class="language-plaintext highlighter-rouge">gcc -v</code>, <code class="language-plaintext highlighter-rouge">g++ -v</code> dan <code class="language-plaintext highlighter-rouge">make -v</code> pastikan versi paling baru.</li>
+</ul>
+
+<h2 id="langkah---langkah-install-jekyll">
+<a class="anchor" href="#langkah---langkah-install-jekyll" aria-hidden="true"><span class="octicon octicon-link"></span></a>Langkah - Langkah Install Jekyll</h2>
+<p>Karena saya menggunakan windows maka saya hanya akan menulis instalasi jekyll di windows, untuk sistem operasi lainnya akan saya cantumkan <a href="https://jekyllrb.com/docs/installation/">link menuju artikel resmi</a>.</p>
+
+<h3 id="install-jekyll-via-rubyinstaller">
+<a class="anchor" href="#install-jekyll-via-rubyinstaller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Jekyll via RubyInstaller</h3>
+<p>Cara yang paling simpel dan sangat saya rekomendasikan adalah menggunakan <a href="https://rubyinstaller.org/">RubyInstaller</a>.<br>
+Pastikan menggunakan <strong>RubyInstaller</strong> versi <strong>2.4</strong> keatas agar tidak ada masalah ketika menggunakan jekyll.</p>
+<ol>
+  <li>
+<a href="https://rubyinstaller.org/downloads/">Download</a> <strong>RubyInstaller versi Ruby+Devkit</strong>. pastikan gunakan opsi bawaan ketika proses instalasi.</li>
+  <li>Jalankan file <code class="language-plaintext highlighter-rouge">ridk install</code> kemudian install seperti aplikasi pada umumnya, dan di akhir tahap instalasi pastikan memilih opsi <code class="language-plaintext highlighter-rouge">MSYS2 and MINGW development tool chain</code>.</li>
+  <li>Buka CMD kemudian install jekyll dan bundler menggunakan <em>package manager ruby</em> yang sudah kita install sebelumnya yaitu <code class="language-plaintext highlighter-rouge">gem</code> dengan perintah <code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code>.</li>
+  <li>cek versi jekyll yang sudah terinstall <code class="language-plaintext highlighter-rouge">jekyll -v</code>
+</li>
+</ol>
+
+<blockquote>
+  <p>Ketika mengecek versi jika kalian mengalami error <strong>Jekyll has not been installed properly</strong>, reboot device kemudian jalankan ulang, jika masih error pastikan terhubung internet kemudian coba reinstall RubyInstaller dan ulangi mulai step 2</p>
+</blockquote>
+
+<h3 id="install-jekyll-via-bash-windows">
+<a class="anchor" href="#install-jekyll-via-bash-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Jekyll via Bash Windows</h3>
+<p>Jika kalian menggunakan windows 10 versi 1607 keatas, bisa menggunakan opsi lain yaitu menggunakan bash di terminal atau cmd windows</p>
+
+<blockquote>
+  <p>Pastikan kalian sudah mengaktifkan <strong><a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Windows Subsytem for Linux</a></strong>.</p>
+</blockquote>
+
+<p>Pastikan repository ter-update, karena subsystem linux menggunakan ubuntu maka untuk update semua reposity gunakan perintah ini</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>selanjutnya install ruby dari repository <a href="https://www.brightbox.com/docs/ruby/ubuntu/">BrightBox</a>, karena brightbox merupakan salah satu repository yang selalu <em>up-to-date</em> ruby ke versi terbaru.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-add-repository ppa:brightbox/ruby-ng
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>ruby2.5 ruby2.5-dev build-essential dh-autoreconf
+</code></pre></div></div>
+
+<p>kemudian update ruby gem dan install jekyll</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem update <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>jekyll bundler
+</code></pre></div></div>
+
+<p>untuk mengecek versi jekyll gunakan <code class="language-plaintext highlighter-rouge">jekyll -v</code></p>
+
+<h1 id="menggunakan-jekyll">
+<a class="anchor" href="#menggunakan-jekyll" aria-hidden="true"><span class="octicon octicon-link"></span></a>Menggunakan Jekyll</h1>
+<p>Setelah semuanya terinstall selanjutnya kita sudah bisa membuat website secara otomatis menggunakan jekyll, contoh disini saya mau membuat folder website-jekyll dengan nama <code class="language-plaintext highlighter-rouge">BlogPribadi</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new BlogPribadi
+</code></pre></div></div>
+<p>kemudian masuk kedalam folder <code class="language-plaintext highlighter-rouge">BlogPribadi</code> yang sudah di buat</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>BlogPribadi
+</code></pre></div></div>
+
+<p>bisa diketahui bahwa didalam folder <code class="language-plaintext highlighter-rouge">BlogPribadi</code> sudah terdapat template website bawaan</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BlogPribadi/
+    |-- 404.html
+    |-- Gemfile
+    |-- Gemfile.lock
+    |-- _config.yml
+    |-- _posts
+    |   |-- 2023-09-13-welcome-to-jekyll.markdown
+    |-- about.markdown
+    |-- index.markdown
+</code></pre></div></div>
+<p>mari kita bedah satu-satu:</p>
+<ol>
+  <li>
+<strong>404.html</strong>, seperti namanya file ini hanya akan dibaca jekyll ketika link yang kita tuju tidak menemukan hasil apapun.</li>
+  <li>
+<strong>Gemfile</strong>, merupakan file untuk kita menulis plugin-plugin yang kita butuhkan di dalam jekyll, plugin bawaan kurang lebih begini jika masih belum ditambah plugin baru
+    <div class="language-ruby highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="o">...</span> 
+<span class="n">gem</span> <span class="s2">"jekyll"</span><span class="p">,</span> <span class="s2">"~&gt; 4.3.2"</span>
+<span class="c1"># This is the default theme for new Jekyll sites. You may change this to anything you like.</span>
+<span class="n">gem</span> <span class="s2">"minima"</span><span class="p">,</span> <span class="s2">"~&gt; 2.5"</span>
+<span class="c1"># If you want to use GitHub Pages, remove the "gem "jekyll"" above and</span>
+<span class="c1"># uncomment the line below. To upgrade, run `bundle update github-pages`.</span>
+<span class="c1"># gem "github-pages", group: :jekyll_plugins</span>
+<span class="c1"># If you have any plugins, put them here!</span>
+<span class="n">group</span> <span class="ss">:jekyll_plugins</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s2">"jekyll-feed"</span><span class="p">,</span> <span class="s2">"~&gt; 0.12"</span>
+<span class="k">end</span>
+<span class="c1"># Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem</span>
+<span class="c1"># and associated library.</span>
+<span class="n">platforms</span> <span class="ss">:mingw</span><span class="p">,</span> <span class="ss">:x64_mingw</span><span class="p">,</span> <span class="ss">:mswin</span><span class="p">,</span> <span class="ss">:jruby</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s2">"tzinfo"</span><span class="p">,</span> <span class="s2">"&gt;= 1"</span><span class="p">,</span> <span class="s2">"&lt; 3"</span>
+  <span class="n">gem</span> <span class="s2">"tzinfo-data"</span>
+<span class="k">end</span>
+<span class="c1"># Performance-booster for watching directories on Windows</span>
+<span class="n">gem</span> <span class="s2">"wdm"</span><span class="p">,</span> <span class="s2">"~&gt; 0.1.1"</span><span class="p">,</span> <span class="ss">:platforms</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:mingw</span><span class="p">,</span> <span class="ss">:x64_mingw</span><span class="p">,</span> <span class="ss">:mswin</span><span class="p">]</span>
+<span class="c1"># Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem</span>
+<span class="c1"># do not have a Java counterpart.</span>
+<span class="n">gem</span> <span class="s2">"http_parser.rb"</span><span class="p">,</span> <span class="s2">"~&gt; 0.6.0"</span><span class="p">,</span> <span class="ss">:platforms</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:jruby</span><span class="p">]</span>
+<span class="o">...</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+<strong>_config.yml</strong>, file utama dan terpenting untuk kita mengatur semua komponen didalam folder jekyll value bawaan seperti dibawah
+    <div class="language-yaml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nn">...</span> 
+<span class="na">title</span><span class="pi">:</span> <span class="s">Your awesome title</span>
+<span class="na">email</span><span class="pi">:</span> <span class="s">your-email@example.com</span>
+<span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;-</span> <span class="c1"># this means to ignore newlines until "baseurl:"</span>
+  <span class="s">Write an awesome description for your new site here. You can edit this</span>
+  <span class="s">line in _config.yml. It will appear in your document head meta (for</span>
+  <span class="s">Google search results) and in your feed.xml site description.</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># the subpath of your site, e.g. /blog</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># the base hostname &amp; protocol for your site, e.g. http://example.com</span>
+<span class="na">twitter_username</span><span class="pi">:</span> <span class="s">jekyllrb</span>
+<span class="na">github_username</span><span class="pi">:</span>  <span class="s">jekyll</span>
+
+<span class="c1"># Build settings</span>
+<span class="na">theme</span><span class="pi">:</span> <span class="s">minima</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-feed</span>
+<span class="nn">...</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+<strong>_posts</strong>, seperti namanya folder ini tempat menulis judul post baru
+    <blockquote>
+      <p>perahtikan cara penulisan judul dan tanggal post, agar nantinya judul post terbaru bisa dibaca oleh jekyll</p>
+    </blockquote>
+  </li>
+  <li>
+<strong>about.markdown</strong>, sama seperti namanya juga, file about ini bisa berisi alasan pembuatan website, bahkan siapa si pembuat website atau yang lainnya</li>
+  <li>
+<strong>index.markdown</strong>, file ini yang nantinya akan dibaca jekyll pertama kali, dan akan menjadi <em>homepage</em> atau <em>landing page</em>
+</li>
+</ol>
+
+<blockquote>
+  <p>untuk <code class="language-plaintext highlighter-rouge">about.markdown</code> dan <code class="language-plaintext highlighter-rouge">index-markdown</code> kenapa ditulis dengan format <code class="language-plaintext highlighter-rouge">.markdown</code> bukan <code class="language-plaintext highlighter-rouge">.html</code>? karena jekll menggunakan engine <strong>kramdown</strong> yang nantinya file berekstensi <code class="language-plaintext highlighter-rouge">.markdown</code> akan dirender kedalam format <code class="language-plaintext highlighter-rouge">.html</code> dengan tujuan untuk mempermudah dalam penulisan.</p>
+</blockquote>
+
+<p>dan sebenanya template tersebut bisa kita jalankan secara lokal</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div></div>
+<p>atau jika kalian ingin menjalankan secara lokal dan bisa diakses dengan device lain</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve <span class="nt">--host</span> 0.0.0.0
+</code></pre></div></div>
+<p>perintah <code class="language-plaintext highlighter-rouge">serve</code> akan menjalankan website secara lokal di <a href="http://localhost:4000/">http://localhost:4000/</a> <br>
+<br>
+Untuk tampilan tema bawaan jekyll seperti dibawah ini</p>
+
+<p class="p-gambar tengah" label="Tampilan tema bawaan Jekyll"><a href="/assets/img/post/proses-buat-web-p2/serve-command.png"><img src="/assets/img/post/proses-buat-web-p2/serve-command.png" alt="serve-command"></a></p>
+
+<p>Sangat sederhana bukan?, tapi bisa dibuat lebih keren lagi seperti pembahasan kita selanjutnya, simak saja <em>hwhw</em></p>
+
+<h1 id="integrasi-jekyll-dan-website">
+<a class="anchor" href="#integrasi-jekyll-dan-website" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integrasi Jekyll dan website</h1>
+<p>Meskipun tertulis ‘integrasi’ tapi yang kita lakukan sebenarnya hanyalah menulis kode dan memasukannya kedalam folder jekyll dengan benar, agar konsep desain website bisa dibaca dan dijalankan oleh jekyll, tapi sebelum itu saya akan menganggap kalian sudah paham HTML, CSS dan  beberapa istilah didalam jekyll seperti liquid, frontmatter dan lain-lain, jika belum bisa kalian <a href="https://jekyllrb.com/docs/step-by-step/02-liquid/">menuju web resmi jekyll</a>.</p>
+
+<h2 id="buat-beberapa-folder-dan-file">
+<a class="anchor" href="#buat-beberapa-folder-dan-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buat beberapa folder dan file</h2>
+<p>Seperti yang ada diatas, bahwa template bawaan jekyll sangatlah sederhana, namun kita bisa menambahkan beberapa folder yang sebenanya sudah ada di jekyll namun tidak dibuatkan secara otomatis.<br>
+Pertama buat folder baru didalam folder <code class="language-plaintext highlighter-rouge">BlogPribadi</code> dengan nama:</p>
+<ol>
+  <li>
+<strong>_data</strong>
+folder <code class="language-plaintext highlighter-rouge">_data</code> akan digunakan untuk menyimpan data dalam format <code class="language-plaintext highlighter-rouge">.yaml</code>, bisa berisi data <code class="language-plaintext highlighter-rouge">anggota.yaml</code>, <code class="language-plaintext highlighter-rouge">organisasi.yaml</code>, <code class="language-plaintext highlighter-rouge">bar-navigasi.yaml</code> dan lain-lain, yang nantinya akan dipanggil menggunakan liquid.</li>
+  <li>
+<strong>_includes</strong>
+folder <code class="language-plaintext highlighter-rouge">_includes</code> digunakan untuk menyimpan file modularisasi HTML, umumnya folder ini berisi file html yang nanti nya juga akan dipanggil menggunakan liquid.</li>
+  <li>
+<strong>assets</strong>
+folder ini berisi asset yang dibutuhkan oleh website biasanya terdapat 3 folder utama:
+    <ul>
+      <li>
+<strong>css</strong>, untuk mennyimpan file styling</li>
+      <li>
+<strong>img</strong>, untuk mennyimpan gambar, banner dan lainnya</li>
+      <li>
+<strong>js</strong>, untuk mennyimpan javascript</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Kedua buat beberapa file dengan nama:</p>
+<ol>
+  <li>
+<strong>post.html</strong>, untuk tampilan daftar semua post yang ada</li>
+  <li>
+<strong>project.html</strong>, untuk tampilan daftar project yang sudah dibuat</li>
+  <li>
+<strong>tag.html</strong> (<em>opsional</em>), untul tampilan semua daftar tag yang dipakai, umumnya digunakan sebagai filter, tapi disini saya memakai plugin <code class="language-plaintext highlighter-rouge">jekyll-instant-search</code> jadi untuk mem-filter tag tinggal ketik di kolom pencarian</li>
+</ol>
+
+<h2 id="edit-_configyml-sesuai-kebutuhan">
+<a class="anchor" href="#edit-_configyml-sesuai-kebutuhan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit _config.yml sesuai kebutuhan</h2>
+<p>Seperti yang sudah ditulis diatas fungsi <code class="language-plaintext highlighter-rouge">_config.yml</code> untuk menyimpan semua konfigurasi yang ada di jekyll dan jika ingin memanggil value yang ada di <code class="language-plaintext highlighter-rouge">_config.yml</code> bisa menggunakan liquid <code class="language-plaintext highlighter-rouge">{{ site.value }}</code>.</p>
+
+<p>Edit terlebih dahulu data yang akan dipanggil:</p>
+
+<figure class="highlight" file="_config.yml"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Blog Pribadi</span>
+<span class="na">email</span><span class="pi">:</span> <span class="s">nama@email.com</span>
+<span class="nn">...</span></code></pre></figure>
+
+<p>Kemudian tulis liquid <code class="language-plaintext highlighter-rouge">{{ site.title }}</code> kedalam HTML:</p>
+
+<figure class="highlight" file="index.html"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"id"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>{{ site.title }}<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<p>begitulah cara kerja liquid pada jekyll, dan jika ingin mengganti judul, tidak perlu lagi mengedit file html melainkan edit <strong>title</strong> yang ada di file <code class="language-plaintext highlighter-rouge">_config.yml</code>, maka liquid akan membaca value yg kita ubah secara otomatis.</p>
+
+<h2 id="kesimpulan">
+<a class="anchor" href="#kesimpulan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kesimpulan</h2>
+<p>Kurang lebih seperti itu proses pembuat website pribadi ini, sebenarnya belum selesai dan masih banyak hal yang harus ditulis, <em>tapi yaa lagi malas menulis aja hehe</em>, tapi intinya jika sudah mengetahui dasar cara kerja jekyll maka tinggal memasukkan file desain web ke folder yang sudah dibuatkan, contoh untul file <strong>HTML</strong> taruh ke folder <code class="language-plaintext highlighter-rouge">_layouts/</code>, jika didalam file web desain memerlukan file html lain secara terpisah maka taruh file tersebut ke folder <code class="language-plaintext highlighter-rouge">_includes/</code>, dan untuk file stylesheet atau file <strong>CSS</strong> taruh ke folder <code class="language-plaintext highlighter-rouge">assets/css/</code> dan begitu seterusnya. Tulisan ini akan diperbarui jika ada niat.</p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>
