@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | Fan Control OpenWrt OrangePi Zero 3</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">Fan Control OpenWrt OrangePi Zero 3</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 12 Juli, 2025 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># OpenWrt</p>
+    
+      
+      <p class="tag-post"># LuCI</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#note-">NOTE !!!!</a></li>
+<li class="toc-entry toc-h1"><a href="#fan-control-system-for-openwrt">Fan Control System for OpenWrt</a></li>
+<li class="toc-entry toc-h1"><a href="#features">Features</a></li>
+<li class="toc-entry toc-h1"><a href="#requirements">Requirements</a></li>
+<li class="toc-entry toc-h1"><a href="#how-to-find-the-right-gpio-pin-on-orange-pi-zero-3">How to Find the Right GPIO Pin on Orange Pi Zero 3</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#finding-the-line-number-for-your-gpio-pin">Finding the Line Number for Your GPIO Pin</a></li>
+<li class="toc-entry toc-h3"><a href="#recommended-gpio-pins-for-fan-control">Recommended GPIO Pins for Fan Control</a></li>
+<li class="toc-entry toc-h3"><a href="#testing-gpio-output">Testing GPIO Output</a></li>
+<li class="toc-entry toc-h3"><a href="#wiring-diagram">Wiring Diagram</a></li>
+<li class="toc-entry toc-h3"><a href="#how-to-use-gpio-with-gpioset">How to Use GPIO with gpioset</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#file-structure">File Structure</a></li>
+<li class="toc-entry toc-h1"><a href="#main-logic-script-hardcoded">Main Logic Script (Hardcoded)</a></li>
+<li class="toc-entry toc-h1"><a href="#logic-overview">Logic Overview</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#temperature-override">Temperature Override</a></li>
+<li class="toc-entry toc-h3"><a href="#time-logic">Time Logic</a></li>
+<li class="toc-entry toc-h3"><a href="#manual-control">Manual Control</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#luci-integration">LuCI Integration</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#luci-controller">LuCI Controller</a></li>
+<li class="toc-entry toc-h3"><a href="#cronjob-logic">Cronjob Logic</a></li>
+<li class="toc-entry toc-h3"><a href="#manual-scripts">Manual Scripts</a></li>
+<li class="toc-entry toc-h3"><a href="#last-10-fan-actions">Last 10 Fan Actions</a></li>
+<li class="toc-entry toc-h3"><a href="#fan-cronjob-service-button">Fan Cronjob Service Button</a></li>
+<li class="toc-entry toc-h3"><a href="#info-status-fan">Info Status Fan</a></li>
+<li class="toc-entry toc-h3"><a href="#manual-button">Manual Button</a></li>
+<li class="toc-entry toc-h3"><a href="#luci-dashboard-layout">LuCI Dashboard layout</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#log-format">Log Format</a></li>
+<li class="toc-entry toc-h1"><a href="#debug-mode">Debug Mode</a></li>
+<li class="toc-entry toc-h1"><a href="#bonus-runtime-fallback">Bonus!!! Runtime Fallback</a></li>
+<li class="toc-entry toc-h1"><a href="#future-improvements">Future Improvements</a></li>
+<li class="toc-entry toc-h1"><a href="#refference">Refference</a></li>
+</ul><h1 id="note-">
+<a class="anchor" href="#note-" aria-hidden="true"><span class="octicon octicon-link"></span></a>NOTE !!!!</h1>
+<p><strong><em>Almost 90% of this project are generated by Microsoft Copilot, what i do are just type the prompt project-related or describing feature that i want to add. Fork and edit by yourself if you want to give an improvements, and also don’t pull request</em></strong>.  <em>Thank You</em></p>
+
+<h1 id="fan-control-system-for-openwrt">
+<a class="anchor" href="#fan-control-system-for-openwrt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fan Control System for OpenWrt</h1>
+
+<p>A modular and configurable smart fan controller designed for embedded systems running OpenWrt. It supports temperature-based logic, time-based scheduling, manual control via LuCI, and debug logging.</p>
+
+<p class="p-gambar tengah" label="Fan Control LuCI Dashboard "><a href="/assets/img/post/fan-control-opiz3/fan-con-dashb.png"><img src="/assets/img/post/fan-control-opiz3/fan-con-dashb.png" alt="Fan Control LuCI Dashboard"></a></p>
+
+<h1 id="features">
+<a class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+  <li>Time-based fan scheduling</li>
+  <li>Temperature override with hysteresis</li>
+  <li>Manual control via LuCI dashboard</li>
+  <li>Debug mode for verbose logging</li>
+  <li>Log rotation and rule memory</li>
+  <li>Configurable thresholds and active hours (hardcoded)</li>
+  <li>Cronjob via <code class="language-plaintext highlighter-rouge">crontab</code> package for automated</li>
+</ul>
+
+<h1 id="requirements">
+<a class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h1>
+
+<ul>
+  <li>Fan 5V/12V 2-pin</li>
+  <li><a href="https://a.co/d/awSrPXT">Dual module mosfet</a></li>
+  <li>Know the right pin on Orange Pi Zero 3</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">gpioset</code> utility (via <code class="language-plaintext highlighter-rouge">gpiod</code> package)</li>
+  <li>OpenWrt system with GPIO access</li>
+  <li>GPIO pin connected to fan via MOSFET</li>
+  <li>LuCI installed</li>
+</ul>
+
+<h1 id="how-to-find-the-right-gpio-pin-on-orange-pi-zero-3">
+<a class="anchor" href="#how-to-find-the-right-gpio-pin-on-orange-pi-zero-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Find the Right GPIO Pin on Orange Pi Zero 3</h1>
+
+<p>The Orange Pi Zero 3 features a <strong>26-pin GPIO header</strong> that provides access to multiple interfaces including GPIO, UART, SPI, and I2C. To control a fan via a MOSFET, you’ll need to select a GPIO pin that supports digital output.</p>
+
+<h3 id="finding-the-line-number-for-your-gpio-pin">
+<a class="anchor" href="#finding-the-line-number-for-your-gpio-pin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finding the Line Number for Your GPIO Pin</h3>
+
+<p>Run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpiodetect
+<span class="nv">$ </span>gpioinfo gpiochip0
+</code></pre></div></div>
+<p>Look for the bunch of line (287 Line in my case) and note its line number.</p>
+
+<h3 id="recommended-gpio-pins-for-fan-control">
+<a class="anchor" href="#recommended-gpio-pins-for-fan-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended GPIO Pins for Fan Control</h3>
+
+<p>Here are some general-purpose output pins you can use:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Physical Pin</th>
+      <th style="text-align: left">GPIO Name</th>
+      <th style="text-align: left">Line Number</th>
+      <th style="text-align: left">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Pin 3</td>
+      <td style="text-align: left">PH5</td>
+      <td style="text-align: left">229</td>
+      <td style="text-align: left">I2C3_SDA</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 5</td>
+      <td style="text-align: left">PH4</td>
+      <td style="text-align: left">228</td>
+      <td style="text-align: left">I2C3_SCK</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 7</td>
+      <td style="text-align: left">PC9</td>
+      <td style="text-align: left">73</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 8</td>
+      <td style="text-align: left">PH2</td>
+      <td style="text-align: left">226</td>
+      <td style="text-align: left">UART5_TX</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 10</td>
+      <td style="text-align: left">PH3</td>
+      <td style="text-align: left">227</td>
+      <td style="text-align: left">UART5_RX (I’m Using this)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 11</td>
+      <td style="text-align: left">PC6</td>
+      <td style="text-align: left">70</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 12</td>
+      <td style="text-align: left">PC11</td>
+      <td style="text-align: left">75</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 13</td>
+      <td style="text-align: left">PC5</td>
+      <td style="text-align: left">69</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 15</td>
+      <td style="text-align: left">PC8</td>
+      <td style="text-align: left">72</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 16</td>
+      <td style="text-align: left">PC15</td>
+      <td style="text-align: left">79</td>
+      <td style="text-align: left">Recommended for fan control</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 18</td>
+      <td style="text-align: left">PC14</td>
+      <td style="text-align: left">78</td>
+      <td style="text-align: left">Recommended for fan control</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pin 22</td>
+      <td style="text-align: left">PC7</td>
+      <td style="text-align: left">71</td>
+      <td style="text-align: left">General-purpose GPIO</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Recommended:</strong> Use GPIO23 (Pin 16) or GPIO24 (Pin 18) for fan control. These are safe, general-purpose output pins.</p>
+</blockquote>
+
+<h3 id="testing-gpio-output">
+<a class="anchor" href="#testing-gpio-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing GPIO Output</h3>
+
+<p>To test manually:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpioset gpiochip0 &lt;line_number&gt;<span class="o">=</span>1  <span class="c"># Set HIGH</span>
+gpioset gpiochip0 &lt;line_number&gt;<span class="o">=</span>0  <span class="c"># Set LOW</span>
+</code></pre></div></div>
+
+<h3 id="wiring-diagram">
+<a class="anchor" href="#wiring-diagram" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wiring Diagram</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Orange Pi Zero 3 (26-pin)        Dual MOSFET Module         Fan
+--------------------------       -------------------        ------
+Pin 2  (5V) -------------&gt;       VCC (Vin +) -------&gt;       [Fan V+]
+Pin 6  (GND) ------------&gt;       GND (Vin -) -------&gt;       [Fan GND]
+Pin 10 (Line 227) -------&gt;       PWM (MOSFET Channel 1)
+
+Optional:
+Pin 18 (GPIO24) ---------&gt;       PWM (MOSFET Channel 2)    (for second fan)
+</code></pre></div></div>
+
+<p>Correct real-world wired scheme will look like this</p>
+
+<p class="p-gambar tengah" label="Correct Real-World Wired Scheme"><a href="/assets/img/post/fan-control-opiz3/Wired-Scheme.png"><img src="/assets/img/post/fan-control-opiz3/Wired-Scheme.png" alt="Correct Real-World Wired Scheme"></a></p>
+
+<blockquote>
+  <p>Make sure your MOSFET is wired correctly, you can directly <strong>jumper PWM from Mosfet to 5V pin</strong> to make sure your wiring is correct and fan should spining at this moment.</p>
+</blockquote>
+
+<h3 id="how-to-use-gpio-with-gpioset">
+<a class="anchor" href="#how-to-use-gpio-with-gpioset" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Use GPIO with <code class="language-plaintext highlighter-rouge">gpioset</code>
+</h3>
+
+<p>Orange Pi Zero 3 uses the <strong>Linux GPIO character device interface</strong> via <code class="language-plaintext highlighter-rouge">gpiod</code>. To control a pin:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpioset gpiochip0 <span class="nv">227</span><span class="o">=</span>1  <span class="c"># Turn fan ON</span>
+<span class="nv">$ </span>gpioset gpiochip0 <span class="nv">227</span><span class="o">=</span>0  <span class="c"># Turn fan OFF</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Replace <code class="language-plaintext highlighter-rouge">227</code> with the correct line number of your GPIO pin. You can find this using <code class="language-plaintext highlighter-rouge">gpiodetect</code> and <code class="language-plaintext highlighter-rouge">gpioinfo</code>. or if you still don’t know which the right line number, just try it one by one. <strong>Do not using line number that already used to avoid system fail or your devices electricity will be short in worse case</strong></p>
+</blockquote>
+
+<h1 id="file-structure">
+<a class="anchor" href="#file-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Structure</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/fan-control.service.sh                         # Main logic script
+/fan-on.sh                                      # Manual ON script
+/fan-off.sh                                     # Manual OFF script
+
+/usr/lib/lua/luci/controller/fan/fan.lua        # LuCI controller
+/usr/lib/lua/luci/model/cbi/fan/status.lua      # Define Dashboard Layout
+/usr/lib/lua/luci/view/fan/logview.htm          # Last 10 Fan Log View 
+/usr/lib/lua/luci/view/fan/statusinfo.htm       # Status Fan Info
+/usr/lib/lua/luci/view/fan/buttonrow.htm        # Three manual button
+/usr/lib/lua/luci/view/fan/cronjobtoggle.htm    # Enable/disable fan cronjob service
+
+/tmp/fan.log                                    # Runtime log
+/tmp/fan.state                                  # Current fan state
+/tmp/fan.last_rule                              # Last rule applied
+/tmp/fan.debug                                  # Debug mode flag
+/tmp/fan-service.state                          # Tracks fan cronjob service
+</code></pre></div></div>
+
+<h1 id="main-logic-script-hardcoded">
+<a class="anchor" href="#main-logic-script-hardcoded" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Logic Script (Hardcoded)</h1>
+
+<figure class="highlight" file="/fan-control.service.sh"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+</pre></td>
+<td class="code"><pre><span class="c">#!/bin/sh</span>
+<span class="c"># === Parse --debug flag ===</span>
+<span class="nv">DEBUG</span><span class="o">=</span>0
+<span class="o">[</span> <span class="nt">-f</span> /tmp/fan.debug <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">DEBUG</span><span class="o">=</span>1
+<span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"--debug"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">DEBUG</span><span class="o">=</span>1
+
+log_debug<span class="o">()</span> <span class="o">{</span>
+  <span class="o">[</span> <span class="s2">"</span><span class="nv">$DEBUG</span><span class="s2">"</span> <span class="nt">-eq</span> 1 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"[DEBUG] </span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> /tmp/fan.log
+<span class="o">}</span>
+<span class="c"># === Configurable Temp Thresholds and Active Hours ===</span>
+<span class="nv">TEMP_ON_THRESHOLD</span><span class="o">=</span>61
+<span class="nv">TEMP_OFF_THRESHOLD</span><span class="o">=</span>41
+<span class="nv">ACTIVE_START</span><span class="o">=</span>8
+<span class="nv">ACTIVE_END</span><span class="o">=</span>22
+<span class="c"># === Smart Fan Controller with Rule Memory &amp; Hysteresis ===</span>
+<span class="nv">GPIO</span><span class="o">=</span><span class="s2">"/usr/bin/gpioset gpiochip0 227"</span>
+<span class="nv">TEMP_RAW</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> /sys/class/thermal/thermal_zone0/temp<span class="si">)</span>
+<span class="nv">TEMP_C</span><span class="o">=</span><span class="si">$(</span><span class="nb">expr</span> <span class="nv">$TEMP_RAW</span> / 1000<span class="si">)</span>
+<span class="nv">HOUR</span><span class="o">=</span><span class="si">$(</span><span class="nb">date</span> +%H<span class="si">)</span>
+<span class="nv">LOG</span><span class="o">=</span><span class="s2">"/tmp/fan.log"</span>
+<span class="nv">STATE_FILE</span><span class="o">=</span><span class="s2">"/tmp/fan.state"</span>
+<span class="nv">RULE_FILE</span><span class="o">=</span><span class="s2">"/tmp/fan.last_rule"</span>
+<span class="nv">MAX_LINES</span><span class="o">=</span>100
+<span class="c"># === Log rotation ===</span>
+<span class="o">[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$LOG</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">LINE_COUNT</span><span class="o">=</span><span class="si">$(</span><span class="nb">wc</span> <span class="nt">-l</span> &lt; <span class="s2">"</span><span class="nv">$LOG</span><span class="s2">"</span><span class="si">)</span>
+<span class="o">[</span> <span class="s2">"</span><span class="nv">$LINE_COUNT</span><span class="s2">"</span> <span class="nt">-gt</span> <span class="s2">"</span><span class="nv">$MAX_LINES</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">tail</span> <span class="nt">-n</span> <span class="nv">$MAX_LINES</span> <span class="s2">"</span><span class="nv">$LOG</span><span class="s2">"</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="k">${</span><span class="nv">LOG</span><span class="k">}</span><span class="s2">.tmp"</span> <span class="o">&amp;&amp;</span> <span class="nb">mv</span> <span class="s2">"</span><span class="k">${</span><span class="nv">LOG</span><span class="k">}</span><span class="s2">.tmp"</span> <span class="s2">"</span><span class="nv">$LOG</span><span class="s2">"</span>
+<span class="c"># === Load current state and last rule ===</span>
+<span class="nv">CURRENT_STATE</span><span class="o">=</span><span class="s2">"unknown"</span>
+<span class="nv">LAST_RULE</span><span class="o">=</span><span class="s2">"none"</span>
+<span class="o">[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$STATE_FILE</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">CURRENT_STATE</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="s2">"</span><span class="nv">$STATE_FILE</span><span class="s2">"</span><span class="si">)</span>
+<span class="o">[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$RULE_FILE</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">LAST_RULE</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="s2">"</span><span class="nv">$RULE_FILE</span><span class="s2">"</span><span class="si">)</span>
+
+log_debug <span class="s2">"TEMP_C=</span><span class="nv">$TEMP_C</span><span class="s2">, HOUR=</span><span class="nv">$HOUR</span><span class="s2">, STATE=</span><span class="nv">$CURRENT_STATE</span><span class="s2">, RULE=</span><span class="nv">$LAST_RULE</span><span class="s2">"</span>
+log_debug <span class="s2">"Running fan-control.service.sh at </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span>
+<span class="c"># === Temperature Override with Hysteresis ===</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$TEMP_C</span><span class="s2">"</span> <span class="nt">-ge</span> <span class="s2">"</span><span class="nv">$TEMP_ON_THRESHOLD</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CURRENT_STATE</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"on"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">$GPIO</span><span class="o">=</span>1
+    <span class="nb">echo</span> <span class="s2">"on"</span> <span class="o">&gt;</span> <span class="nv">$STATE_FILE</span>
+    <span class="nb">echo</span> <span class="s2">"temp"</span> <span class="o">&gt;</span> <span class="nv">$RULE_FILE</span>
+    <span class="nb">echo</span> <span class="s2">"[Temp Override] Fan ON @ </span><span class="k">${</span><span class="nv">TEMP_C</span><span class="k">}</span><span class="s2">°C - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="nv">$LOG</span>
+  <span class="k">fi
+  </span><span class="nb">exit </span>0
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$TEMP_C</span><span class="s2">"</span> <span class="nt">-le</span> <span class="s2">"</span><span class="nv">$TEMP_OFF_THRESHOLD</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$HOUR</span><span class="s2">"</span> <span class="nt">-ge</span> <span class="s2">"</span><span class="nv">$ACTIVE_START</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$HOUR</span><span class="s2">"</span> <span class="nt">-lt</span> <span class="s2">"</span><span class="nv">$ACTIVE_END</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"[Temp Override] Skipped OFF due to active hours @ </span><span class="k">${</span><span class="nv">TEMP_C</span><span class="k">}</span><span class="s2">°C - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="nv">$LOG</span>
+    <span class="nb">exit </span>0
+  <span class="k">fi
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CURRENT_STATE</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"off"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">$GPIO</span><span class="o">=</span>0
+    <span class="nb">echo</span> <span class="s2">"off"</span> <span class="o">&gt;</span> <span class="nv">$STATE_FILE</span>
+    <span class="nb">echo</span> <span class="s2">"temp"</span> <span class="o">&gt;</span> <span class="nv">$RULE_FILE</span>
+    <span class="nb">echo</span> <span class="s2">"[Temp Override] Fan OFF @ </span><span class="k">${</span><span class="nv">TEMP_C</span><span class="k">}</span><span class="s2">°C - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="nv">$LOG</span>
+  <span class="k">fi
+  </span><span class="nb">exit </span>0
+<span class="k">fi</span>
+<span class="c"># === Time Logic (only if last rule was time or fan is off) ===</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$LAST_RULE</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"time"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CURRENT_STATE</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"off"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$HOUR</span><span class="s2">"</span> <span class="nt">-ge</span> <span class="s2">"</span><span class="nv">$ACTIVE_START</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$HOUR</span><span class="s2">"</span> <span class="nt">-lt</span> <span class="s2">"</span><span class="nv">$ACTIVE_END</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CURRENT_STATE</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"on"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nv">$GPIO</span><span class="o">=</span>1
+      <span class="nb">echo</span> <span class="s2">"on"</span> <span class="o">&gt;</span> <span class="nv">$STATE_FILE</span>
+      <span class="nb">echo</span> <span class="s2">"time"</span> <span class="o">&gt;</span> <span class="nv">$RULE_FILE</span>
+      <span class="nb">echo</span> <span class="s2">"[Time Logic] Fan ON @ </span><span class="k">${</span><span class="nv">TEMP_C</span><span class="k">}</span><span class="s2">°C - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="nv">$LOG</span>
+    <span class="k">fi
+  else
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CURRENT_STATE</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"off"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nv">$GPIO</span><span class="o">=</span>0
+      <span class="nb">echo</span> <span class="s2">"off"</span> <span class="o">&gt;</span> <span class="nv">$STATE_FILE</span>
+      <span class="nb">echo</span> <span class="s2">"time"</span> <span class="o">&gt;</span> <span class="nv">$RULE_FILE</span>
+      <span class="nb">echo</span> <span class="s2">"[Time Logic] Fan OFF @ </span><span class="k">${</span><span class="nv">TEMP_C</span><span class="k">}</span><span class="s2">°C - </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="nv">$LOG</span>
+    <span class="k">fi
+  fi
+fi</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h1 id="logic-overview">
+<a class="anchor" href="#logic-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logic Overview</h1>
+
+<h3 id="temperature-override">
+<a class="anchor" href="#temperature-override" aria-hidden="true"><span class="octicon octicon-link"></span></a>Temperature Override</h3>
+
+<ul>
+  <li>Fan turns ON if temperature ≥ <code class="language-plaintext highlighter-rouge">TEMP_ON_THRESHOLD</code>
+</li>
+  <li>Fan turns OFF if temperature ≤ <code class="language-plaintext highlighter-rouge">TEMP_OFF_THRESHOLD</code>, <strong>unless within active hours</strong>
+</li>
+</ul>
+
+<h3 id="time-logic">
+<a class="anchor" href="#time-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Time Logic</h3>
+
+<ul>
+  <li>Fan turns ON between <code class="language-plaintext highlighter-rouge">ACTIVE_START</code> and <code class="language-plaintext highlighter-rouge">ACTIVE_END</code> if last rule was time or fan is OFF</li>
+  <li>Fan turns OFF outside active hours</li>
+</ul>
+
+<h3 id="manual-control">
+<a class="anchor" href="#manual-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Control</h3>
+
+<ul>
+  <li>Clicking Fan ON/OFF in LuCI directly sets GPIO and updates state</li>
+  <li>No override flag is used — service logic may override manual actions unless thresholds or time logic prevent it</li>
+</ul>
+
+<blockquote>
+  <p>Also you can change Active Hour or Temp Threshold directly in the script base on you environment if you want</p>
+</blockquote>
+
+<h1 id="luci-integration">
+<a class="anchor" href="#luci-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>LuCI Integration</h1>
+
+<h3 id="luci-controller">
+<a class="anchor" href="#luci-controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>LuCI Controller</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/controller/fan/fan.lua"><pre><code class="language-lua" data-lang="lua"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre></td>
+<td class="code"><pre><span class="n">module</span><span class="p">(</span><span class="s2">"luci.controller.fan.fan"</span><span class="p">,</span> <span class="n">package</span><span class="p">.</span><span class="n">seeall</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">},</span> <span class="n">cbi</span><span class="p">(</span><span class="s2">"fan/status"</span><span class="p">),</span> <span class="n">_</span><span class="p">(</span><span class="s2">"Fan Control"</span><span class="p">),</span> <span class="mi">90</span><span class="p">)</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"on"</span><span class="p">},</span> <span class="n">call</span><span class="p">(</span><span class="s2">"fan_on"</span><span class="p">),</span> <span class="kc">nil</span><span class="p">).</span><span class="n">leaf</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"off"</span><span class="p">},</span> <span class="n">call</span><span class="p">(</span><span class="s2">"fan_off"</span><span class="p">),</span> <span class="kc">nil</span><span class="p">).</span><span class="n">leaf</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"debug"</span><span class="p">},</span> <span class="n">call</span><span class="p">(</span><span class="s2">"toggle_debug"</span><span class="p">),</span> <span class="kc">nil</span><span class="p">).</span><span class="n">leaf</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"cronjob_enable"</span><span class="p">},</span> <span class="n">call</span><span class="p">(</span><span class="s2">"cronjob_enable"</span><span class="p">),</span> <span class="kc">nil</span><span class="p">).</span><span class="n">leaf</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">entry</span><span class="p">({</span><span class="s2">"admin"</span><span class="p">,</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"cronjob_disable"</span><span class="p">},</span> <span class="n">call</span><span class="p">(</span><span class="s2">"cronjob_disable"</span><span class="p">),</span> <span class="kc">nil</span><span class="p">).</span><span class="n">leaf</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">cronjob_enable</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">fs</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">"nixio.fs"</span>
+  <span class="kd">local</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">os.date</span><span class="p">(</span><span class="s2">"%Y-%m-%d %H:%M:%S"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"grep -q '/fan-control.service.sh' /etc/rc.local || sed -i '/^exit 0/i /fan-control.service.sh' /etc/rc.local"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"(crontab -l 2&gt;/dev/null | grep -v '/fan-control.service.sh'; echo '*/2 * * * * /fan-control.service.sh') | crontab -"</span><span class="p">)</span>
+  <span class="n">fs</span><span class="p">.</span><span class="n">writefile</span><span class="p">(</span><span class="s2">"/tmp/fan-service.state"</span><span class="p">,</span> <span class="s2">"enabled"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">"echo 'Fan Cronjob Service ENABLED via LuCI at %s' &gt;&gt; /tmp/fan.log"</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">))</span>
+  <span class="n">luci</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">luci</span><span class="p">.</span><span class="n">dispatcher</span><span class="p">.</span><span class="n">build_url</span><span class="p">(</span><span class="s2">"admin/system/fan"</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">cronjob_disable</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">fs</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">"nixio.fs"</span>
+  <span class="kd">local</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">os.date</span><span class="p">(</span><span class="s2">"%Y-%m-%d %H:%M:%S"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"sed -i '/\\/fan-control\\.service\\.sh/d' /etc/rc.local"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"crontab -l 2&gt;/dev/null | grep -v '/fan-control.service.sh' | crontab -"</span><span class="p">)</span>
+  <span class="n">fs</span><span class="p">.</span><span class="n">writefile</span><span class="p">(</span><span class="s2">"/tmp/fan-service.state"</span><span class="p">,</span> <span class="s2">"disabled"</span><span class="p">)</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">"echo 'Fan Cronjob Service DISABLED via LuCI at %s' &gt;&gt; /tmp/fan.log"</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">))</span>
+  <span class="n">luci</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">luci</span><span class="p">.</span><span class="n">dispatcher</span><span class="p">.</span><span class="n">build_url</span><span class="p">(</span><span class="s2">"admin/system/fan"</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">fan_on</span><span class="p">()</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"/fan-on.sh"</span><span class="p">)</span>
+  <span class="n">luci</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">luci</span><span class="p">.</span><span class="n">dispatcher</span><span class="p">.</span><span class="n">build_url</span><span class="p">(</span><span class="s2">"admin/system/fan"</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">fan_off</span><span class="p">()</span>
+  <span class="nb">os.execute</span><span class="p">(</span><span class="s2">"/fan-off.sh"</span><span class="p">)</span>
+  <span class="n">luci</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">luci</span><span class="p">.</span><span class="n">dispatcher</span><span class="p">.</span><span class="n">build_url</span><span class="p">(</span><span class="s2">"admin/system/fan"</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">toggle_debug</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">fs</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">"nixio.fs"</span>
+  <span class="k">if</span> <span class="n">fs</span><span class="p">.</span><span class="n">access</span><span class="p">(</span><span class="s2">"/tmp/fan.debug"</span><span class="p">)</span> <span class="k">then</span>
+    <span class="n">fs</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"/tmp/fan.debug"</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">fs</span><span class="p">.</span><span class="n">writefile</span><span class="p">(</span><span class="s2">"/tmp/fan.debug"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="n">luci</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">luci</span><span class="p">.</span><span class="n">dispatcher</span><span class="p">.</span><span class="n">build_url</span><span class="p">(</span><span class="s2">"admin/system/fan"</span><span class="p">))</span>
+<span class="k">end</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="cronjob-logic">
+<a class="anchor" href="#cronjob-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cronjob Logic</h3>
+
+<ul>
+  <li>
+<strong>Enabled</strong>:
+    <ul>
+      <li>Adds <code class="language-plaintext highlighter-rouge">/fan-control.service.sh</code> to <code class="language-plaintext highlighter-rouge">/etc/rc.local</code>
+</li>
+      <li>Schedules it via <code class="language-plaintext highlighter-rouge">crontab</code> every 2 minutes</li>
+      <li>Updates <code class="language-plaintext highlighter-rouge">/tmp/fan-service.state</code>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>Disabled</strong>:
+    <ul>
+      <li>Removes script from <code class="language-plaintext highlighter-rouge">rc.local</code> and <code class="language-plaintext highlighter-rouge">crontab</code>
+</li>
+      <li>Updates <code class="language-plaintext highlighter-rouge">/tmp/fan-service.state</code>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="manual-scripts">
+<a class="anchor" href="#manual-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Scripts</h3>
+
+<figure class="highlight" file="/fan-on.sh"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="code"><pre><span class="c">#!/bin/sh</span>
+<span class="nb">echo</span> <span class="s2">"on"</span> <span class="o">&gt;&gt;</span> /tmp/fan.state
+<span class="nb">echo</span> <span class="s2">"manual"</span> <span class="o">&gt;&gt;</span> /tmp/fan.last_rule
+<span class="nb">echo</span> <span class="s2">"[Manual] Fan ON @ </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> /tmp/fan.log
+/usr/bin/gpioset gpiochip0 <span class="nv">227</span><span class="o">=</span>1
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<figure class="highlight" file="/fan-off.sh"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="code"><pre><span class="c">#!/bin/sh</span>
+<span class="nb">echo</span> <span class="s2">"off"</span> <span class="o">&gt;&gt;</span> /tmp/fan.state
+<span class="nb">echo</span> <span class="s2">"manual"</span> <span class="o">&gt;&gt;</span> /tmp/fan.last_rule
+<span class="nb">echo</span> <span class="s2">"[Manual] Fan OFF @ </span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> /tmp/fan.log
+/usr/bin/gpioset gpiochip0 <span class="nv">227</span><span class="o">=</span>0
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="last-10-fan-actions">
+<a class="anchor" href="#last-10-fan-actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Last 10 Fan Actions</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/view/fan/logview.htm"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td>
+<td class="code"><pre><span class="nt">&lt;h3</span> <span class="na">style=</span><span class="s">"margin-bottom:4px;"</span><span class="nt">&gt;</span>Last 10 Fan Actions<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"
+  font-family: monospace;
+  white-space: pre-wrap;
+  background-color: #2c2f3a;
+  color: #e0e0e0;
+  padding: 10px;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+  border: 1px solid #444;
+"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;</span><span class="err">%</span>
+  <span class="na">local</span> <span class="na">fs = </span><span class="s">require</span> <span class="err">"</span><span class="na">nixio.fs</span><span class="err">"</span>
+  <span class="na">local</span> <span class="na">log_content = </span><span class="s">fs.readfile("/tmp/fan.log")</span> <span class="na">or</span> <span class="err">""</span>
+  <span class="na">local</span> <span class="na">log_lines = </span><span class="s">{}</span>
+  <span class="na">for</span> <span class="na">line</span> <span class="na">in</span> <span class="na">log_content:gmatch</span><span class="err">("[^\</span><span class="na">r</span><span class="err">\</span><span class="na">n</span><span class="err">]+")</span> <span class="na">do</span>
+    <span class="na">table.insert</span><span class="err">(</span><span class="na">log_lines</span><span class="err">,</span> <span class="na">line</span><span class="err">)</span>
+  <span class="na">end</span>
+  <span class="na">for</span> <span class="na">i = </span><span class="s">math.max(1,</span> <span class="na">#log_lines</span> <span class="na">-</span> <span class="err">9),</span> <span class="na">#log_lines</span> <span class="na">do</span>
+    <span class="na">local</span> <span class="na">line = </span><span class="s">log_lines[i]</span>
+    <span class="na">if</span> <span class="na">line:match</span><span class="err">("</span><span class="na">Temp</span> <span class="na">Override</span><span class="err">")</span> <span class="na">then</span>
+      <span class="na">write</span><span class="err">('&lt;</span><span class="na">div</span> <span class="na">style=</span><span class="s">"color:#ff6b6b;"</span><span class="nt">&gt;</span>' .. line .. '<span class="nt">&lt;/div&gt;</span>')
+    elseif line:match("Time Logic") then
+      write('<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"color:#6bcf6b;"</span><span class="nt">&gt;</span>' .. line .. '<span class="nt">&lt;/div&gt;</span>')
+    else
+      write('<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"color:#aaa;"</span><span class="nt">&gt;</span>' .. line .. '<span class="nt">&lt;/div&gt;</span>')
+    end
+  end
+%&gt;
+<span class="nt">&lt;/div&gt;</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="fan-cronjob-service-button">
+<a class="anchor" href="#fan-cronjob-service-button" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fan Cronjob Service Button</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/view/fan/cronjobtoggle.htm"><pre><code class="language-lua" data-lang="lua"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="code"><pre><span class="o">&lt;</span><span class="n">h3</span> <span class="n">style</span><span class="o">=</span><span class="s2">"margin-bottom:4px;"</span><span class="o">&gt;</span><span class="n">Fan</span> <span class="n">Cronjob</span> <span class="n">Service</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s2">"display:flex; gap:10px; margin-bottom:8px;"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"&lt;%=luci.dispatcher.build_url('admin/system/fan/cronjob_enable')%&gt;"</span> <span class="n">class</span><span class="o">=</span><span class="s2">"cbi-button cbi-button-save"</span><span class="o">&gt;</span><span class="n">Enable</span> <span class="n">Cronjob</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"&lt;%=luci.dispatcher.build_url('admin/system/fan/cronjob_disable')%&gt;"</span> <span class="n">class</span><span class="o">=</span><span class="s2">"cbi-button cbi-button-remove"</span><span class="o">&gt;</span><span class="n">Disable</span> <span class="n">Cronjob</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="info-status-fan">
+<a class="anchor" href="#info-status-fan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Info Status Fan</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/view/fan/statusinfo.htm"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td>
+<td class="code"><pre><span class="nt">&lt;h3</span> <span class="na">style=</span><span class="s">"margin-bottom:4px;"</span><span class="nt">&gt;</span>Fan Status<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"margin-bottom:8px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">style=</span><span class="s">"
+    font-family: monospace;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: auto;
+  "</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px; width: 90px; white-space: nowrap;"</span><span class="nt">&gt;</span>CPU Temp<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px;"</span><span class="nt">&gt;&lt;strong&gt;</span>: <span class="nt">&lt;</span><span class="err">%=</span><span class="na">luci.sys.exec</span><span class="err">("</span><span class="na">expr</span> <span class="err">$(</span><span class="na">cat</span> <span class="err">/</span><span class="na">sys</span><span class="err">/</span><span class="na">class</span><span class="err">/</span><span class="na">thermal</span><span class="err">/</span><span class="na">thermal_zone0</span><span class="err">/</span><span class="na">temp</span><span class="err">)</span> <span class="err">/</span> <span class="err">1000")%</span><span class="nt">&gt;</span>°C<span class="nt">&lt;/strong&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px; width: 90px; white-space: nowrap;"</span><span class="nt">&gt;</span>Fan State<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;</span><span class="err">%</span> <span class="na">if</span> <span class="na">luci.sys.exec</span><span class="err">("</span><span class="na">cat</span> <span class="err">/</span><span class="na">tmp</span><span class="err">/</span><span class="na">fan.state</span><span class="err">")</span><span class="na">:match</span><span class="err">("</span><span class="na">on</span><span class="err">")</span> <span class="na">then</span> <span class="err">%</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;strong&gt;</span>: <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color:#6bcf6b;"</span><span class="nt">&gt;</span>on<span class="nt">&lt;/span&gt;&lt;/strong&gt;</span>
+        <span class="nt">&lt;</span><span class="err">%</span> <span class="na">else</span> <span class="err">%</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;strong&gt;</span>: <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color:#ff6b6b;"</span><span class="nt">&gt;</span>off<span class="nt">&lt;/span&gt;&lt;/strong&gt;</span>
+        <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px; width: 90px; white-space: nowrap;"</span><span class="nt">&gt;</span>Last Rule<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px;"</span><span class="nt">&gt;&lt;strong&gt;</span>: <span class="nt">&lt;</span><span class="err">%=</span><span class="na">luci.sys.exec</span><span class="err">("</span><span class="na">cat</span> <span class="err">/</span><span class="na">tmp</span><span class="err">/</span><span class="na">fan.last_rule</span> <span class="err">2</span><span class="nt">&gt;</span>/dev/null")%&gt;<span class="nt">&lt;/strong&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px; width: 90px; white-space: nowrap;"</span><span class="nt">&gt;</span>Debug Mode<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">"padding:4px;"</span><span class="nt">&gt;&lt;strong&gt;</span>: <span class="nt">&lt;</span><span class="err">%=</span><span class="na">luci.sys.exec</span><span class="err">("[</span> <span class="na">-f</span> <span class="err">/</span><span class="na">tmp</span><span class="err">/</span><span class="na">fan.debug</span> <span class="err">]</span> <span class="err">&amp;&amp;</span> <span class="na">echo</span> <span class="na">ON</span> <span class="err">||</span> <span class="na">echo</span> <span class="na">OFF</span><span class="err">")%</span><span class="nt">&gt;&lt;/strong&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #444; margin: 8px 0;"</span> <span class="nt">/&gt;</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="manual-button">
+<a class="anchor" href="#manual-button" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Button</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/view/fan/buttonrow.htm"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="code"><pre><span class="nt">&lt;h3</span> <span class="na">style=</span><span class="s">"margin-bottom:4px;"</span><span class="nt">&gt;</span>Manual Controls<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"display:flex; gap:10px; margin-bottom:8px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;%=luci.dispatcher.build_url('admin/system/fan/on')%&gt;"</span> <span class="na">class=</span><span class="s">"cbi-button cbi-button-save"</span><span class="nt">&gt;</span>Turn Fan ON<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;%=luci.dispatcher.build_url('admin/system/fan/off')%&gt;"</span> <span class="na">class=</span><span class="s">"cbi-button cbi-button-remove"</span><span class="nt">&gt;</span>Turn Fan OFF<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;%=luci.dispatcher.build_url('admin/system/fan/debug')%&gt;"</span> <span class="na">class=</span><span class="s">"cbi-button cbi-button-reload"</span><span class="nt">&gt;</span>Toggle Debug Mode<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;hr</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #444; margin: 8px 0;"</span> <span class="nt">/&gt;</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="luci-dashboard-layout">
+<a class="anchor" href="#luci-dashboard-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>LuCI Dashboard layout</h3>
+
+<figure class="highlight" file="/usr/lib/lua/luci/model/cbi/fan/status.lua"><pre><code class="language-lua" data-lang="lua"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td>
+<td class="code"><pre><span class="kd">local</span> <span class="n">fs</span> <span class="o">=</span> <span class="nb">require</span> <span class="s2">"nixio.fs"</span>
+<span class="kd">local</span> <span class="n">log_path</span> <span class="o">=</span> <span class="s2">"/tmp/fan.log"</span>
+<span class="kd">local</span> <span class="n">log_content</span> <span class="o">=</span> <span class="n">fs</span><span class="p">.</span><span class="n">readfile</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">"No log found"</span>
+
+<span class="kd">local</span> <span class="n">f</span> <span class="o">=</span> <span class="n">SimpleForm</span><span class="p">(</span><span class="s2">"fan"</span><span class="p">,</span> <span class="s2">"Fan Control Dashboard"</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">reset</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">f</span><span class="p">.</span><span class="n">submit</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="c1">-- === Status Section ===</span>
+<span class="n">f</span><span class="p">:</span><span class="n">section</span><span class="p">(</span><span class="n">SimpleSection</span><span class="p">).</span><span class="n">template</span> <span class="o">=</span> <span class="s2">"fan/statusinfo"</span>
+<span class="c1">-- === Fan Cronjob Service ===</span>
+<span class="n">f</span><span class="p">:</span><span class="n">section</span><span class="p">(</span><span class="n">SimpleSection</span><span class="p">).</span><span class="n">template</span> <span class="o">=</span> <span class="s2">"fan/cronjobtoggle"</span>
+<span class="c1">-- === Manual Controls Section ===</span>
+<span class="n">f</span><span class="p">:</span><span class="n">section</span><span class="p">(</span><span class="n">SimpleSection</span><span class="p">).</span><span class="n">template</span> <span class="o">=</span> <span class="s2">"fan/buttonrow"</span>
+<span class="c1">-- === Log Viewer Section ===</span>
+<span class="kd">local</span> <span class="n">log_lines</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="n">log_content</span><span class="p">:</span><span class="n">gmatch</span><span class="p">(</span><span class="s2">"[^\r\n]+"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="nb">table.insert</span><span class="p">(</span><span class="n">log_lines</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="kd">local</span> <span class="n">last_10</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="nb">math.max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">log_lines</span> <span class="o">-</span> <span class="mi">9</span><span class="p">),</span> <span class="o">#</span><span class="n">log_lines</span> <span class="k">do</span>
+  <span class="n">last_10</span> <span class="o">=</span> <span class="n">last_10</span> <span class="o">..</span> <span class="n">log_lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">..</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">f</span><span class="p">:</span><span class="n">section</span><span class="p">(</span><span class="n">SimpleSection</span><span class="p">).</span><span class="n">template</span> <span class="o">=</span> <span class="s2">"fan/logview"</span>
+
+<span class="k">return</span> <span class="n">f</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h1 id="log-format">
+<a class="anchor" href="#log-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log Format</h1>
+
+<p>Example entries in <code class="language-plaintext highlighter-rouge">fan.log</code></p>
+
+<figure class="highlight" file="/tmp/fan.log"><pre><code class="language-plaintext" data-lang="plaintext">...
+[Temp Override] Fan ON @ 62°C - Fri Jul 11 19:10:00 WIB 2025
+[Time Logic] Fan OFF @ 45°C - Fri Jul 11 22:01:00 WIB 2025
+[Manual] Fan ON @ Fri Jul 11 19:15:00 WIB 2025
+[Temp Override] Skipped OFF due to active hours @ 39°C - Fri Jul 11 19:20:00 WIB 2025
+Fan Cronjob Service ENABLED via LuCI at 2025-07-15 21:44:24
+...</code></pre></figure>
+
+<h1 id="debug-mode">
+<a class="anchor" href="#debug-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debug Mode</h1>
+
+<p>Enable with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch</span> /tmp/fan.debug
+</code></pre></div></div>
+
+<p>Disable with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">rm</span> /tmp/fan.debug
+</code></pre></div></div>
+
+<p>Adds <code class="language-plaintext highlighter-rouge">[DEBUG]</code> entries to <code class="language-plaintext highlighter-rouge">/tmp/fan.log</code>.</p>
+
+<h1 id="bonus-runtime-fallback">
+<a class="anchor" href="#bonus-runtime-fallback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus!!! Runtime Fallback</h1>
+
+<p>Since the runtime (log file) are placed in <code class="language-plaintext highlighter-rouge">/tmp</code> it will auto deleted once your device is reboot so, put this code inside <code class="language-plaintext highlighter-rouge">/etc/rc.local</code>:</p>
+
+<figure class="highlight" file="/etc/rc.local"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="code"><pre>...
+<span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /tmp/fan.log <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">touch</span> /tmp/fan.log
+<span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /tmp/fan.state <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"off"</span> <span class="o">&gt;</span> /tmp/fan.state
+<span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /tmp/fan.last_rule <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"none"</span> <span class="o">&gt;</span> /tmp/fan.last_rule
+<span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /tmp/fan-service.state <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"disabled"</span> <span class="o">&gt;</span> /tmp/fan-service.state
+...
+<span class="nb">exit </span>0
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p>Always make sure <strong>exit 0</strong> in the last line or you command wont be executed</p>
+</blockquote>
+
+<h1 id="future-improvements">
+<a class="anchor" href="#future-improvements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Improvements</h1>
+
+<ul>
+  <li>LuCI config editor for thresholds and hours</li>
+  <li>YAML-based configuration</li>
+  <li>Auto-expiring manual mode</li>
+  <li>Fan speed control via PWM</li>
+</ul>
+
+<h1 id="refference">
+<a class="anchor" href="#refference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refference</h1>
+<p><a href="https://arrhythmicobsession.wordpress.com/2020/06/30/attaching-a-temperature-controlled-cooling-fan-on-an-orange-pi-zero-plus/">https://arrhythmicobsession.wordpress.com/attaching-a-temperature-controlled-cooling-fan</a></p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | proses membuat website part 1</title>
+  </head>
+  <body>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">proses membuat website part 1</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 10 September, 2023 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># jekyll</p>
+    
+      
+      <p class="tag-post"># website</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#pendahuluan">Pendahuluan</a></li>
+<li class="toc-entry toc-h1"><a href="#latar-belakang">Latar Belakang</a></li>
+<li class="toc-entry toc-h1"><a href="#software">Software</a></li>
+<li class="toc-entry toc-h1"><a href="#konsep-desain-ui">Konsep Desain UI</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#home-layout">Home Layout</a></li>
+<li class="toc-entry toc-h2"><a href="#post-layout">Post Layout</a></li>
+<li class="toc-entry toc-h2"><a href="#project-layout">Project Layout</a></li>
+<li class="toc-entry toc-h2"><a href="#about-layout">About Layout</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#kesimpulan">Kesimpulan</a></li>
+</ul><h1 id="pendahuluan">
+<a class="anchor" href="#pendahuluan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pendahuluan</h1>
+<p>Halo para pembaca yang membaca tulisan tidak jelas ini, maaf sebelumnya jika bahasa dan cara penulisan yang kurang benar dikarenakan saya tidak ada pengalaman sebagai <em>Content-Writer</em> atau <em>Copywriter</em> atau yang lain. Jadi dengan jadinya website ini semoga bisa saya gunakan sebagai bahan belajar tentang menulis artikel. Post dengan judul ini mungkin akan dibagi menjadi beberapa part karena saya ingin menulisnya secara detail. <em>kalau bisa wkwk</em></p>
+
+<h1 id="latar-belakang">
+<a class="anchor" href="#latar-belakang" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latar Belakang</h1>
+<p>Saya orangnya sangat suka menggunakan internet sampai di suatu hari saya ingin mempunyai website sendiri tapi masalahnya saya tidak ada background sebagai <em>Web Developer</em> apalagi menulis kode program, sehingga saya mencari tutorial membuat website, semua mengintruksikan untuk menggunakan template yang sudah ada tapi tidak ada yang cocok secara tampilan bagi saya, kemudian saya mencari tutorial belajar <em>Web Development</em> dan saya menemukan Youtube Channel <a href="https://www.youtube.com/@sandhikagalihWPU">Web Programming UNPAS</a> yang menurut saya sangat bagus dari segi materi, penyampaian, urutan pembelajaran, latihan serta tips dan trik membuat website. Dari situ saya yang awalnya nol banget tentang Web Development sampai sekarang bisa membuat website, meskipun hanya frontend saja itu pun cuma HTML dan CSS.</p>
+
+<h1 id="software">
+<a class="anchor" href="#software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software</h1>
+<p>Saya menggunakan <strong>Jekyll</strong> sebagai framework, jika kalian tidak tahu apa itu jekyll, kalian bisa baca di doc <a href="https://jekyllrb.com/docs/">web resmi jekyll</a>. Secara kasar, singkatnya jekyll adalah sebuah <strong>Static Site Generator</strong> atau biasa disebut <strong>SSG</strong> merupakan kerangka atau template <em>directory</em> sebuah website, sebagai contoh di jekyll ada folder dengan nama <code class="language-plaintext highlighter-rouge">_posts</code> maka jika kalian ingin membuat judul post baru kalian harus membuat file tulisan disana.</p>
+
+<h1 id="konsep-desain-ui">
+<a class="anchor" href="#konsep-desain-ui" aria-hidden="true"><span class="octicon octicon-link"></span></a>Konsep Desain UI</h1>
+<p>Saya ingin web simpel dan menarik namun unik, yang mempunyai total 4 tab sebagai navigasi:</p>
+<ol>
+  <li>Home</li>
+  <li>post</li>
+  <li>project</li>
+  <li>about</li>
+</ol>
+
+<blockquote>
+  <p>untuk code tidak akan saya tampilkan secara menyeluruh agar tidak spam karena sangat panjang, sebagai gantinya akan saya cantumkan link menuju code yang ada di <a href="https://github.com/albawid/albawid.github.io">github saya</a></p>
+</blockquote>
+
+<h2 id="home-layout">
+<a class="anchor" href="#home-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Home Layout</h2>
+<p>Tampilan <em>Home</em> atau <em>Landing Page</em> yang menampilkan gambar maskot dan deskripsi author secara singkat di sisi kanan kemudian dibawahnya terdapat 3 post terbaru dan 3 project terbaru dan tombol menuju semua daftar list post dan project</p>
+
+<p class="p-gambar tengah" label="Desain Tampilan Home"><a href="/assets/img/post/proses-buat-web-p1/home-layout.png"><img src="/assets/img/post/proses-buat-web-p1/home-layout.png" alt="Home Layout"></a></p>
+
+<h2 id="post-layout">
+<a class="anchor" href="#post-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Post Layout</h2>
+<p>Untuk tampilan list post sama seperti yang ada di “Home” namun ada perbedaan ketika website terbuka di viewport minimal 768px dimana deskripsi post akan di matikan dengan tujuan menghemat viewport</p>
+
+<p class="p-gambar tengah" label="Desain Tampilan list Post"><a href="/assets/img/post/proses-buat-web-p1/post-layout.png"><img src="/assets/img/post/proses-buat-web-p1/post-layout.png" alt="post Layout"></a></p>
+
+<h2 id="project-layout">
+<a class="anchor" href="#project-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Layout</h2>
+<p>Tampilan list Project sama seperti list post namun ditambahkan gambar dan tag dihilangkan karena menurut saya untuk membahas project atau bahan latihan saya tidak memerlukan tag</p>
+
+<p class="p-gambar tengah" label="Desain Tampilan list Project"><a href="/assets/img/post/proses-buat-web-p1/project-layout.png"><img src="/assets/img/post/proses-buat-web-p1/project-layout.png" alt="project Layout"></a></p>
+
+<h2 id="about-layout">
+<a class="anchor" href="#about-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Layout</h2>
+<p>Sebernarnya di tab <em>about</em> ini menggunakan layout project yang di <em>duplicate</em> langsung dari layout post sehingga tampilan about ini akan mirip dengan tampilan isi post dengan perbedaan tanggal dan author dimatikan.</p>
+
+<p class="p-gambar tengah" label="Desain Tampilan About"><a href="/assets/img/post/proses-buat-web-p1/about-layout.png"><img src="/assets/img/post/proses-buat-web-p1/about-layout.png" alt="about Layout"></a></p>
+
+<p>Komponen daftar isi memiliki 3 level:</p>
+<ol>
+  <li>Heading 1, menggunakan simbol lingkaran solid
+    <div class="language-html highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Heading 1<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div>    </div>
+    <p>atau jika didalam markdown</p>
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gh"># Heading 1</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Heading 2, menggunakan simbol outline lingkaran
+    <div class="language-html highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h2&gt;</span>Heading 2<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div>    </div>
+    <p>atau jika didalam markdown</p>
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gu">## Heading 2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Heading 3, menggunakan simbol kotak solid
+    <div class="language-html highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h3&gt;</span>Heading 3<span class="nt">&lt;/h3&gt;</span>
+</code></pre></div>    </div>
+    <p>atau jika didalam markdown</p>
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gu">### Heading 3</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>untuk hasilnya seperti dibawah ini</p>
+
+<p class="p-gambar tengah" label="Tampilan Daftar isi"><a href="/assets/img/post/proses-buat-web-p1/daftar-isi.png"><img src="/assets/img/post/proses-buat-web-p1/daftar-isi.png" alt="daftar isi"></a></p>
+
+<h1 id="kesimpulan">
+<a class="anchor" href="#kesimpulan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kesimpulan</h1>
+<p>Sangat sederhana bukan?, tapi perlu diketahui pembuatan website ini dari desain tampilan sampai penulisan HTML, CSS dan sedikit Javascript hanya dilakukan oleh 1 orang saja, ya saya sendiri, meskipun saya tidak ada pengalaman sebagai <em>Web Developer</em> sebelumnya tapi saya sangat bersyukur bisa membuat website sesuai keinginan saya, ya seperti ini lah tampilan website yang saya inginkan. Untuk part selanjutnya mungkin akan membahas integrasi Jekyll dengan website.</p>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+  </body>
+</html>

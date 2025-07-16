@@ -1,0 +1,53 @@
+[
+
+  {
+    "title"    : "Fan Control OpenWrt OrangePi Zero 3",
+    "url"      : "/posts/fan-control-orangepizero3/",
+    "tags"     : "<p># OpenWrt </p><p># LuCI </p>",
+    "date"     : "12 July, 2025",
+    "excerpt" : "Smart fan controller designed for embedded systems running OpenWrt"
+  },
+  {
+    "title"    : "Penggunaan I dan I Am",
+    "url"      : "/posts/penggunaan-i-dan-iam/",
+    "tags"     : "<p># tips </p><p># catatan </p>",
+    "date"     : "13 February, 2025",
+    "excerpt" : "Membahas point pentingnya saja mengenai perbedaan penggunaan I dan I Am"
+  },
+  {
+    "title"    : "Pengenalan markdown dan contoh penggunaan",
+    "url"      : "/posts/pengenalan-markdown/",
+    "tags"     : "<p># markdown </p><p># tips </p><p># trik </p>",
+    "date"     : "20 September, 2023",
+    "excerpt" : "berkenalan dengan markdown, cara penulisan baru untuk mempermudah pembuatan content web statik"
+  },
+  {
+    "title"    : "membuat custom user snipet vscode",
+    "url"      : "/posts/membuat-custom-user-sinippet/",
+    "tags"     : "<p># vscode </p><p># tips </p><p># trik </p>",
+    "date"     : "13 September, 2023",
+    "excerpt" : "kesusahan mengetik tulisan yang sama namun berbeda berulang kali, maka membuat kustom snippet merupakan sebuah solusi"
+  },
+  {
+    "title"    : "proses membuat website part 3",
+    "url"      : "/posts/proses-membuat-website-part-3/",
+    "tags"     : "<p># Jekyll </p><p># website </p>",
+    "date"     : "12 September, 2023",
+    "excerpt" : "Melanjutkan pembahasan mengenai pembuatan website part 3, Bagian Deployment Website."
+  },
+  {
+    "title"    : "proses membuat website part 2",
+    "url"      : "/posts/proses-membuat-website-part-2/",
+    "tags"     : "<p># Jekyll </p><p># website </p>",
+    "date"     : "11 September, 2023",
+    "excerpt" : "Melanjutkan pembahasan mengenai pembuatan website part 2, Bagian integrasi Jekyll dengan HTML."
+  },
+  {
+    "title"    : "proses membuat website part 1",
+    "url"      : "/posts/proses-membuat-website-part-1/",
+    "tags"     : "<p># jekyll </p><p># website </p>",
+    "date"     : "10 September, 2023",
+    "excerpt" : "semua proses terkait pembuatan website akan ditulis sebagai post dengan sedetail mungkin, alih-alih biar website tidak kosong hehe"
+  }
+  
+]
