@@ -30,8 +30,6 @@ Selain itu, ada beberapa hal yang membuat aku tertarik:
 
 Secara teknis, Hermes Agent adalah sebuah framework yang menghubungkan **Large Language Model (LLM)** dengan **tool-tool sistem** seperti terminal, file system, browser, dan berbagai API. Jadi bukan cuma chatbot biasa, tapi benar-benar asisten digital yang bisa bertindak.
 
-{: .p-gambar .tengah label="Arsitektur Hermes Agent" }
-![Arsitektur Hermes Agent](https://hermes-agent.nousresearch.com/docs/img/hermes-architecture.png)
 
 ## Arsitektur Dasar
 
