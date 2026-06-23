@@ -314,18 +314,17 @@ div.highlighter-rouge div.highlight {
 // Copy Code Button
 .copy-code-btn {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: .6rem;
+    right: .6rem;
     display: flex;
     align-items: center;
-    gap: .3rem;
-    padding: .3rem .6rem;
-    font-size: .75rem;
-    font-family: 'Signika', sans-serif;
-    color: var(--color-linenum);
-    background-color: var(--oren-gelap);
+    padding: 0 .45rem;
+    font-size: .85rem;
+    font-weight: bolder;
+    color: var(--bg-dark);
+    background-color: var(--bg-blockquote);
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     opacity: 0;
     transition: opacity 150ms, background-color 150ms;

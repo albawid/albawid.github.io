@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.className = 'copy-code-btn';
     btn.type = 'button';
     btn.setAttribute('aria-label', 'Copy code');
-    btn.innerHTML = '<i class="fa-regular fa-copy"></i><span>Copy</span>';
+    btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
 
     btn.addEventListener('click', function () {
       var text = getCode();
       navigator.clipboard.writeText(text).then(function () {
         btn.classList.add('copied');
-        btn.innerHTML = '<i class="fa-solid fa-check"></i><span>Copied!</span>';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
         setTimeout(function () {
           btn.classList.remove('copied');
-          btn.innerHTML = '<i class="fa-regular fa-copy"></i><span>Copy</span>';
+          btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
         }, 2000);
       });
     });
