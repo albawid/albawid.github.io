@@ -311,6 +311,49 @@ div.highlighter-rouge div.highlight {
 }
 // END Codeblock
 
+// Copy Code Button
+.copy-code-btn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .3rem .6rem;
+    font-size: .75rem;
+    font-family: 'Signika', sans-serif;
+    color: var(--color-linenum);
+    background-color: var(--oren-gelap);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 150ms, background-color 150ms;
+    z-index: 10;
+}
+
+.copy-code-btn:hover {
+    background-color: var(--oren-cerah);
+    color: var(--bg-dark);
+}
+
+.copy-code-btn.copied {
+    background-color: #8ec07c;
+    color: var(--bg-dark);
+}
+
+// Show button on hover
+div.highlighter-rouge:hover .copy-code-btn,
+figure.highlight:hover .copy-code-btn {
+    opacity: 1;
+}
+
+// For figure.highlight, offset top to avoid file label overlap
+figure.highlight .copy-code-btn {
+    top: .5rem;
+    right: .5rem;
+}
+
 // Table
 table {
     display: table;
