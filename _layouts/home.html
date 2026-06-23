@@ -13,26 +13,26 @@
     </head>
     <body>
 
-        <div class="loading-screen" id="loading-screen">
-          <div class="loading-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
         <script>
           (function () {
-            var start = Date.now();
-            var minTime = 1500;
-            window.addEventListener('load', function () {
-              var elapsed = Date.now() - start;
-              var wait = Math.max(0, minTime - elapsed);
-              setTimeout(function () {
-                var ls = document.getElementById('loading-screen');
-                ls.classList.add('fade-out');
-                setTimeout(function () { ls.remove(); }, 300);
-              }, wait);
-            });
+            if (!sessionStorage.getItem('loaded')) {
+              var ls = document.createElement('div');
+              ls.className = 'loading-screen';
+              ls.id = 'loading-screen';
+              ls.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+              document.body.appendChild(ls);
+              var start = Date.now();
+              var minTime = 1500;
+              window.addEventListener('load', function () {
+                var elapsed = Date.now() - start;
+                var wait = Math.max(0, minTime - elapsed);
+                setTimeout(function () {
+                  ls.classList.add('fade-out');
+                  setTimeout(function () { ls.remove(); }, 300);
+                  sessionStorage.setItem('loaded', '1');
+                }, wait);
+              });
+            }
           })();
         </script>
 
