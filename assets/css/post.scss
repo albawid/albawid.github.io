@@ -229,9 +229,8 @@ figure.highlight { //pembungkus codeblock
     margin-block: .4rem;
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
-    overflow-x: auto;
     border-radius: .4rem;
-    overflow-x: hidden;
+    overflow-x: auto;
     background-color: var(--color-headline);
 }
 
