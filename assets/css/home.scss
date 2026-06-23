@@ -58,6 +58,8 @@ table {
 @import '_addon/footer';
 //animasi garis bawah teks link
 @import '_addon/animasi-link';
+// loading screen
+@import '_addon/loading.scss';
 
 body {
     position: relative;

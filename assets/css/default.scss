@@ -95,6 +95,8 @@ body { // trik agar footer tidak collapse ketika tidak ada content pake flex
 @import '_addon/github-komen.scss';
 // tombol search
 @import '_addon/search.scss';
+// loading screen
+@import '_addon/loading.scss';
 
 @media only screen and (min-width: 768px) {
 	.content-post {

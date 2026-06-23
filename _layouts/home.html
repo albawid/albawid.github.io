@@ -13,6 +13,21 @@
     </head>
     <body>
 
+        <div class="loading-screen" id="loading-screen">
+          <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <script>
+          window.addEventListener('load', function () {
+            var ls = document.getElementById('loading-screen');
+            ls.classList.add('fade-out');
+            setTimeout(function () { ls.remove(); }, 300);
+          });
+        </script>
+
         <div class="container-satu">
             <div class="main">
                 
