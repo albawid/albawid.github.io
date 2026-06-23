@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/assets/js/dark-mode.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favico/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favico/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/favico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <title>Albawid | Preview Semua Elemen Markdown</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        if (!sessionStorage.getItem('loaded')) {
+          var ls = document.createElement('div');
+          ls.className = 'loading-screen';
+          ls.id = 'loading-screen';
+          ls.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+          document.body.appendChild(ls);
+          var start = Date.now();
+          var minTime = 1500;
+          window.addEventListener('load', function () {
+            var elapsed = Date.now() - start;
+            var wait = Math.max(0, minTime - elapsed);
+            setTimeout(function () {
+              ls.classList.add('fade-out');
+              setTimeout(function () { ls.remove(); }, 300);
+              sessionStorage.setItem('loaded', '1');
+            }, wait);
+          });
+        }
+      })();
+    </script>
+    <button onclick="fungsi()" id="btn-dark">dark mode</button>
+    <navbar>
+    <div class="navbar">
+        
+            <a href="/" class=""><i class="fa fa-home"></i></a>
+        
+            <a href="/post" class=""><i class="fa fa-book"></i></a>
+        
+            <a href="/project" class=""><i class="fa fa-laptop"></i></a>
+        
+            <a href="/about/" class=""><i class="fa fa-user-circle"></i></a>
+        
+            <a><div id="btn-dark" onclick="fungsi()" type="button"><i class="dark-light fa-solid fa-sun"></i></div></a>
+    </div>
+</navbar>
+    <div class="container">
+        <div class="content-post">
+  <h1 class="judul-post">Preview Semua Elemen Markdown</h1>
+  <p class="tanggal"><i class="fa fa-calendar"></i> 23 Juni, 2026 &nbsp; <i class="fa fa-user-circle"></i><a href="/about/" class="penulis"> Albawid</a></p>
+  <span class="tag-center">
+    
+      
+      <p class="tag-post"># markdown</p>
+    
+      
+      <p class="tag-post"># tutorial</p>
+    
+  </span>
+  <p><ul id="toc" class="toc__list">
+<li class="toc-entry toc-h1"><a href="#heading-1---judul-utama">Heading 1 - Judul Utama</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#heading-2---sub-judul">Heading 2 - Sub Judul</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#heading-3---section">Heading 3 - Section</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#paragraf--text-formatting">Paragraf &amp; Text Formatting</a></li>
+<li class="toc-entry toc-h1"><a href="#blockquote">Blockquote</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h3"><a href="#blockquote-dengan-heading">Blockquote dengan Heading</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#list">List</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#unordered-list">Unordered List</a></li>
+<li class="toc-entry toc-h2"><a href="#unordered-list---nested">Unordered List - Nested</a></li>
+<li class="toc-entry toc-h2"><a href="#ordered-list">Ordered List</a></li>
+<li class="toc-entry toc-h2"><a href="#ordered-list---nested">Ordered List - Nested</a></li>
+<li class="toc-entry toc-h2"><a href="#mixed-list">Mixed List</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#link">Link</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#inline-link">Inline Link</a></li>
+<li class="toc-entry toc-h2"><a href="#link-dengan-title">Link dengan Title</a></li>
+<li class="toc-entry toc-h2"><a href="#reference-link">Reference Link</a></li>
+<li class="toc-entry toc-h2"><a href="#auto-link">Auto Link</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#image">Image</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#image-biasa">Image Biasa</a></li>
+<li class="toc-entry toc-h2"><a href="#image-dengan-link">Image dengan Link</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#table">Table</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#table-sederhana">Table Sederhana</a></li>
+<li class="toc-entry toc-h2"><a href="#table-dengan-alignment">Table dengan Alignment</a></li>
+<li class="toc-entry toc-h2"><a href="#table-kompleks">Table Kompleks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#code">Code</a>
+<ul class="toc__sublist">
+<li class="toc-entry toc-h2"><a href="#inline-code">Inline Code</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---python">Code Block - Python</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---javascript">Code Block - JavaScript</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---htmlcss">Code Block - HTML/CSS</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---shellbash">Code Block - Shell/Bash</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---yaml-config-panjang">Code Block - YAML (Config Panjang)</a></li>
+<li class="toc-entry toc-h2"><a href="#code-block---json-data-panjang">Code Block - JSON (Data Panjang)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#horizontal-rule">Horizontal Rule</a></li>
+<li class="toc-entry toc-h1"><a href="#footnote">Footnote</a></li>
+<li class="toc-entry toc-h1"><a href="#task-list">Task List</a></li>
+<li class="toc-entry toc-h1"><a href="#definition-list">Definition List</a></li>
+<li class="toc-entry toc-h1"><a href="#escaped-characters">Escaped Characters</a></li>
+<li class="toc-entry toc-h1"><a href="#colored-text-html">Colored Text (HTML)</a></li>
+<li class="toc-entry toc-h1"><a href="#summarydetails-html">Summary/Details (HTML)</a></li>
+<li class="toc-entry toc-h1"><a href="#keyboard-keys-html">Keyboard Keys (HTML)</a></li>
+<li class="toc-entry toc-h1"><a href="#abbreviation-html">Abbreviation (HTML)</a></li>
+<li class="toc-entry toc-h1"><a href="#akhiran">Akhiran</a></li>
+</ul><p>Post ini dibuat sebagai <strong>referensi visual</strong> untuk semua elemen markdown yang digunakan di blog ini. Cocok untuk cek apakah styling-nya sudah benar atau belum.</p>
+
+<h1 id="heading-1---judul-utama">
+<a class="anchor" href="#heading-1---judul-utama" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heading 1 - Judul Utama</h1>
+
+<h2 id="heading-2---sub-judul">
+<a class="anchor" href="#heading-2---sub-judul" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heading 2 - Sub Judul</h2>
+
+<h3 id="heading-3---section">
+<a class="anchor" href="#heading-3---section" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heading 3 - Section</h3>
+
+<h4 id="heading-4---sub-section">Heading 4 - Sub Section</h4>
+
+<h5 id="heading-5---minor-section">Heading 5 - Minor Section</h5>
+
+<h6 id="heading-6---smallest-heading">Heading 6 - Smallest Heading</h6>
+
+<hr>
+
+<h1 id="paragraf--text-formatting">
+<a class="anchor" href="#paragraf--text-formatting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paragraf &amp; Text Formatting</h1>
+
+<p>Ini adalah paragraf biasa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+<p>Paragraf kedua dengan <strong>teks tebal</strong>, <em>teks miring</em>, dan <strong><em>teks tebal sekaligus miring</em></strong>. Ada juga <del>teks yang dicoret</del> dan <code class="language-plaintext highlighter-rouge">inline code</code> untuk menulis kode di dalam paragraf.</p>
+
+<p>Kombinasi: <strong>bold dengan <em>italic</em> di dalamnya</strong> dan juga <em>italic dengan <strong>bold</strong> di dalamnya</em>.</p>
+
+<hr>
+
+<h1 id="blockquote">
+<a class="anchor" href="#blockquote" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blockquote</h1>
+
+<blockquote>
+  <p>Ini adalah blockquote sederhana. Biasanya digunakan untuk kutipan atau catatan penting.</p>
+</blockquote>
+
+<blockquote>
+  <p>Blockquote bisa juga <strong>multi-paragraph</strong>.</p>
+
+  <p>Seperti ini paragraf keduanya dengan penjelasan lebih lanjut mengenai topik yang sedang dibahas.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Tips:</strong> Blockquote bisa dikombinasikan dengan formatting lain seperti <strong>bold</strong>, <em>italic</em>, dan <code class="language-plaintext highlighter-rouge">inline code</code>.</p>
+</blockquote>
+
+<blockquote>
+  <h3 id="blockquote-dengan-heading">
+<a class="anchor" href="#blockquote-dengan-heading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blockquote dengan Heading</h3>
+
+  <p>Blockquote juga bisa berisi heading, list, dan bahkan code block:</p>
+
+  <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>contoh code di dalam blockquote
+</code></pre></div>  </div>
+</blockquote>
+
+<hr>
+
+<h1 id="list">
+<a class="anchor" href="#list" aria-hidden="true"><span class="octicon octicon-link"></span></a>List</h1>
+
+<h2 id="unordered-list">
+<a class="anchor" href="#unordered-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unordered List</h2>
+
+<ul>
+  <li>Item pertama</li>
+  <li>Item kedua</li>
+  <li>Item ketiga dengan <strong>teks tebal</strong>
+</li>
+  <li>Item keempat dengan <code class="language-plaintext highlighter-rouge">inline code</code>
+</li>
+</ul>
+
+<h2 id="unordered-list---nested">
+<a class="anchor" href="#unordered-list---nested" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unordered List - Nested</h2>
+
+<ul>
+  <li>Item utama
+    <ul>
+      <li>Sub item level 2</li>
+      <li>Sub item level 2
+        <ul>
+          <li>Sub item level 3</li>
+          <li>Sub item level 3
+            <ul>
+              <li>Sub item level 4</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Item utama kedua
+    <ul>
+      <li>Sub item dengan <strong>formatting</strong>
+</li>
+      <li>Sub item dengan <a href="#">link</a>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="ordered-list">
+<a class="anchor" href="#ordered-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ordered List</h2>
+
+<ol>
+  <li>Langkah pertama</li>
+  <li>Langkah kedua</li>
+  <li>Langkah ketiga</li>
+  <li>Langkah keempat</li>
+</ol>
+
+<h2 id="ordered-list---nested">
+<a class="anchor" href="#ordered-list---nested" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ordered List - Nested</h2>
+
+<ol>
+  <li>Step utama
+    <ol>
+      <li>Sub step A</li>
+      <li>Sub step B
+        <ol>
+          <li>Sub-sub step i</li>
+          <li>Sub-sub step ii</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Step utama kedua
+    <ol>
+      <li>Sub step C</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="mixed-list">
+<a class="anchor" href="#mixed-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixed List</h2>
+
+<ol>
+  <li>Ordered item
+    <ul>
+      <li>Unsub sub item</li>
+      <li>Unsub sub item kedua</li>
+    </ul>
+  </li>
+  <li>Ordered item kedua
+    <ol>
+      <li>Ordered sub item</li>
+      <li>Ordered sub item kedua</li>
+    </ol>
+  </li>
+</ol>
+
+<hr>
+
+<h1 id="link">
+<a class="anchor" href="#link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Link</h1>
+
+<h2 id="inline-link">
+<a class="anchor" href="#inline-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inline Link</h2>
+
+<p>Kunjungi <a href="https://github.com">GitHub</a> untuk informasi lebih lanjut.</p>
+
+<h2 id="link-dengan-title">
+<a class="anchor" href="#link-dengan-title" aria-hidden="true"><span class="octicon octicon-link"></span></a>Link dengan Title</h2>
+
+<p>Kunjungi <a href="https://github.com" title="GitHub Homepage">GitHub</a> untuk repositori open-source.</p>
+
+<h2 id="reference-link">
+<a class="anchor" href="#reference-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference Link</h2>
+
+<p>Ini adalah contoh <a href="https://github.com">reference link</a> dan juga <a href="https://developer.mozilla.org">reference link kedua</a>.</p>
+
+<h2 id="auto-link">
+<a class="anchor" href="#auto-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto Link</h2>
+
+<p>Kunjungi https://github.com/albawid untuk melihat profil GitHub.</p>
+
+<hr>
+
+<h1 id="image">
+<a class="anchor" href="#image" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image</h1>
+
+<h2 id="image-biasa">
+<a class="anchor" href="#image-biasa" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image Biasa</h2>
+
+<p><img src="https://via.placeholder.com/600x300/1a1a2e/e94560?text=Preview+Image" alt="Contoh Alt Text"></p>
+
+<h2 id="image-dengan-link">
+<a class="anchor" href="#image-dengan-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image dengan Link</h2>
+
+<p><a href="https://github.com"><img src="https://via.placeholder.com/600x300/16213e/0f3460?text=Click+Me" alt="Alt Text"></a></p>
+
+<hr>
+
+<h1 id="table">
+<a class="anchor" href="#table" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table</h1>
+
+<h2 id="table-sederhana">
+<a class="anchor" href="#table-sederhana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table Sederhana</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Umur</th>
+      <th>Kota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andi</td>
+      <td>25</td>
+      <td>Jakarta</td>
+    </tr>
+    <tr>
+      <td>Budi</td>
+      <td>30</td>
+      <td>Surabaya</td>
+    </tr>
+    <tr>
+      <td>Citra</td>
+      <td>22</td>
+      <td>Bandung</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-dengan-alignment">
+<a class="anchor" href="#table-dengan-alignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table dengan Alignment</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kiri</th>
+      <th style="text-align: center">Tengah</th>
+      <th style="text-align: right">Kanan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Left</td>
+      <td style="text-align: center">Center</td>
+      <td style="text-align: right">Right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Align</td>
+      <td style="text-align: center">Align</td>
+      <td style="text-align: right">Align</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: center">Text</td>
+      <td style="text-align: right">Text</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-kompleks">
+<a class="anchor" href="#table-kompleks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table Kompleks</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fitur</th>
+      <th style="text-align: left">Deskripsi</th>
+      <th style="text-align: center">Status</th>
+      <th style="text-align: center">Prioritas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Dark Mode</strong></td>
+      <td style="text-align: left">Toggle tema gelap/terang</td>
+      <td style="text-align: center">✅ Aktif</td>
+      <td style="text-align: center">Tinggi</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Syntax Highlighting</strong></td>
+      <td style="text-align: left">Pewarnaan kode otomatis</td>
+      <td style="text-align: center">✅ Aktif</td>
+      <td style="text-align: center">Tinggi</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Responsive</strong></td>
+      <td style="text-align: left">Tampilan menyesuaikan layar</td>
+      <td style="text-align: center">✅ Aktif</td>
+      <td style="text-align: center">Sedang</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Search</strong></td>
+      <td style="text-align: left">Pencarian konten blog</td>
+      <td style="text-align: center">🔄 Progress</td>
+      <td style="text-align: center">Rendah</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>RSS Feed</strong></td>
+      <td style="text-align: left">Feed untuk pembaca</td>
+      <td style="text-align: center">❌ Belum</td>
+      <td style="text-align: center">Rendah</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h1 id="code">
+<a class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h1>
+
+<h2 id="inline-code">
+<a class="anchor" href="#inline-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inline Code</h2>
+
+<p>Gunakan <code class="language-plaintext highlighter-rouge">console.log()</code> untuk debug di JavaScript, atau <code class="language-plaintext highlighter-rouge">print()</code> untuk Python. Untuk styling gunakan property <code class="language-plaintext highlighter-rouge">background-color</code> pada CSS.</p>
+
+<h2 id="code-block---python">
+<a class="anchor" href="#code-block---python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - Python</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Generate Fibonacci sequence up to n terms.</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">sequence</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">next_val</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">sequence</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">next_val</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">sequence</span>
+
+<span class="c1"># Contoh penggunaan
+</span><span class="n">result</span> <span class="o">=</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Fibonacci(10): </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># Output: Fibonacci(10): [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</span></code></pre></div></div>
+
+<h2 id="code-block---javascript">
+<a class="anchor" href="#code-block---javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - JavaScript</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Class untuk mengelola data mahasiswa</span>
+<span class="kd">class</span> <span class="nc">Mahasiswa</span> <span class="p">{</span>
+    <span class="nf">constructor</span><span class="p">(</span><span class="nx">nama</span><span class="p">,</span> <span class="nx">nim</span><span class="p">,</span> <span class="nx">jurusan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nama</span> <span class="o">=</span> <span class="nx">nama</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nim</span> <span class="o">=</span> <span class="nx">nim</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">jurusan</span> <span class="o">=</span> <span class="nx">jurusan</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nilai</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="p">}</span>
+
+    <span class="nf">tambahNilai</span><span class="p">(</span><span class="nx">nilai</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nilai</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">nilai</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">hitungRataRata</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nilai</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">total</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">nilai</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">total</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">nilai</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">getStatus</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rata</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">hitungRataRata</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">rata</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">Lulus</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">Tidak Lulus</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">nama</span><span class="p">}</span><span class="s2"> (</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">nim</span><span class="p">}</span><span class="s2">) - </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">jurusan</span><span class="p">}</span><span class="s2"> | Rata-rata: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nf">hitungRataRata</span><span class="p">().</span><span class="nf">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span><span class="s2"> | </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nf">getStatus</span><span class="p">()}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Contoh penggunaan</span>
+<span class="kd">const</span> <span class="nx">mhs1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Mahasiswa</span><span class="p">(</span><span class="dl">"</span><span class="s2">Andi</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">12345</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Teknik Informatika</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">mhs1</span><span class="p">.</span><span class="nf">tambahNilai</span><span class="p">(</span><span class="mi">85</span><span class="p">);</span>
+<span class="nx">mhs1</span><span class="p">.</span><span class="nf">tambahNilai</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+<span class="nx">mhs1</span><span class="p">.</span><span class="nf">tambahNilai</span><span class="p">(</span><span class="mi">78</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">mhs1</span><span class="p">.</span><span class="nf">toString</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h2 id="code-block---htmlcss">
+<a class="anchor" href="#code-block---htmlcss" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - HTML/CSS</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"id"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Contoh Halaman<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="o">*</span> <span class="p">{</span>
+            <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+            <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">body</span> <span class="p">{</span>
+            <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Segoe UI'</span><span class="p">,</span> <span class="n">Tahoma</span><span class="p">,</span> <span class="n">Geneva</span><span class="p">,</span> <span class="n">Verdana</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+            <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.6</span><span class="p">;</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+            <span class="nl">background-color</span><span class="p">:</span> <span class="m">#f4f4f4</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nc">.container</span> <span class="p">{</span>
+            <span class="nl">max-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">;</span>
+            <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+            <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span>
+            <span class="nl">border-radius</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
+            <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">2px</span> <span class="m">10px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nt">h1</span> <span class="p">{</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="m">#2c3e50</span><span class="p">;</span>
+            <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+            <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="m">#3498db</span><span class="p">;</span>
+            <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">0.5rem</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nc">.card</span> <span class="p">{</span>
+            <span class="nl">background</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span><span class="m">135deg</span><span class="p">,</span> <span class="m">#667eea</span> <span class="m">0%</span><span class="p">,</span> <span class="m">#764ba2</span> <span class="m">100%</span><span class="p">);</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">1.5rem</span><span class="p">;</span>
+            <span class="nl">border-radius</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
+            <span class="nl">margin-top</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Ini adalah contoh halaman HTML sederhana.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h2&gt;</span>Card Component<span class="nt">&lt;/h2&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Dengan gradient background dan border radius.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="code-block---shellbash">
+<a class="anchor" href="#code-block---shellbash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - Shell/Bash</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># Script untuk backup otomatis</span>
+<span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">"/backup/</span><span class="si">$(</span><span class="nb">date</span> +%Y%m%d<span class="si">)</span><span class="s2">"</span>
+<span class="nv">SOURCE_DIR</span><span class="o">=</span><span class="s2">"/var/www/html"</span>
+<span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">"/var/log/backup.log"</span>
+
+<span class="nb">echo</span> <span class="s2">"[</span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">] Starting backup..."</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$LOG_FILE</span><span class="s2">"</span>
+
+<span class="c"># Buat direktori backup jika belum ada</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span>
+
+<span class="c"># Backup dengan rsync</span>
+rsync <span class="nt">-avz</span> <span class="nt">--delete</span> <span class="s2">"</span><span class="nv">$SOURCE_DIR</span><span class="s2">/"</span> <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">/"</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$LOG_FILE</span><span class="s2">"</span> 2&gt;&amp;1
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-eq</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"[</span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">] Backup successful: </span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$LOG_FILE</span><span class="s2">"</span>
+    <span class="c"># Hapus backup lama (&gt;30 hari)</span>
+    find /backup <span class="nt">-type</span> d <span class="nt">-mtime</span> +30 <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-rf</span> <span class="o">{}</span> +
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"[</span><span class="si">$(</span><span class="nb">date</span><span class="si">)</span><span class="s2">] Backup FAILED!"</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$LOG_FILE</span><span class="s2">"</span>
+    <span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h2 id="code-block---yaml-config-panjang">
+<a class="anchor" href="#code-block---yaml-config-panjang" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - YAML (Config Panjang)</h2>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Konfigurasi lengkap untuk deployment aplikasi</span>
+<span class="c1"># File: docker-compose.production.yml</span>
+
+<span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="c1"># Frontend Application</span>
+  <span class="na">frontend</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">node:18-alpine</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">app-frontend</span>
+    <span class="na">working_dir</span><span class="pi">:</span> <span class="s">/app</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./frontend:/app</span>
+      <span class="pi">-</span> <span class="s">frontend_node_modules:/app/node_modules</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">3000:3000"</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">NODE_ENV=production</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_API_URL=https://api.example.com/v1</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_WS_URL=wss://ws.example.com</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_AUTH_DOMAIN=auth.example.com</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_AUTH_CLIENT_ID=client_id_xxxxx</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_SENTRY_DSN=https://xxx@sentry.io/xxx</span>
+      <span class="pi">-</span> <span class="s">REACT_APP_GA_TRACKING_ID=UA-XXXXXXXXX-X</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">npm run build &amp;&amp; npm run start</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">backend</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-network</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">healthcheck</span><span class="pi">:</span>
+      <span class="na">test</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">CMD"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">curl"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">-f"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">http://localhost:3000/health"</span><span class="pi">]</span>
+      <span class="na">interval</span><span class="pi">:</span> <span class="s">30s</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="s">10s</span>
+      <span class="na">retries</span><span class="pi">:</span> <span class="m">3</span>
+
+  <span class="c1"># Backend API</span>
+  <span class="na">backend</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">python:3.11-slim</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">app-backend</span>
+    <span class="na">working_dir</span><span class="pi">:</span> <span class="s">/app</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/app</span>
+      <span class="pi">-</span> <span class="s">backend_venv:/app/venv</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8000:8000"</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">DATABASE_URL=postgresql://user:password@postgres:5432/appdb</span>
+      <span class="pi">-</span> <span class="s">REDIS_URL=redis://redis:6379/0</span>
+      <span class="pi">-</span> <span class="s">SECRET_KEY=your-super-secret-key-here-change-this</span>
+      <span class="pi">-</span> <span class="s">JWT_ALGORITHM=HS256</span>
+      <span class="pi">-</span> <span class="s">JWT_EXPIRATION=3600</span>
+      <span class="pi">-</span> <span class="s">CORS_ORIGINS=https://example.com,https://www.example.com</span>
+      <span class="pi">-</span> <span class="s">SMTP_HOST=smtp.gmail.com</span>
+      <span class="pi">-</span> <span class="s">SMTP_PORT=587</span>
+      <span class="pi">-</span> <span class="s">SMTP_USER=noreply@example.com</span>
+      <span class="pi">-</span> <span class="s">SMTP_PASSWORD=app-specific-password</span>
+      <span class="pi">-</span> <span class="s">AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE</span>
+      <span class="pi">-</span> <span class="s">AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</span>
+      <span class="pi">-</span> <span class="s">AWS_STORAGE_BUCKET_NAME=app-production-assets</span>
+      <span class="pi">-</span> <span class="s">AWS_S3_REGION=ap-southeast-1</span>
+      <span class="pi">-</span> <span class="s">LOG_LEVEL=INFO</span>
+      <span class="pi">-</span> <span class="s">SENTRY_DSN=https://xxx@sentry.io/xxx</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="s">sh -c "pip install -r requirements.txt &amp;&amp;</span>
+             <span class="s">python manage.py migrate &amp;&amp;</span>
+             <span class="s">python manage.py collectstatic --noinput &amp;&amp;</span>
+             <span class="s">gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4 --timeout 120"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="na">postgres</span><span class="pi">:</span>
+        <span class="na">condition</span><span class="pi">:</span> <span class="s">service_healthy</span>
+      <span class="na">redis</span><span class="pi">:</span>
+        <span class="na">condition</span><span class="pi">:</span> <span class="s">service_healthy</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-network</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+
+  <span class="c1"># PostgreSQL Database</span>
+  <span class="na">postgres</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:15-alpine</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">app-postgres</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">postgres_data:/var/lib/postgresql/data</span>
+      <span class="pi">-</span> <span class="s">./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_DB=appdb</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_USER=user</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=password</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">5432:5432"</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-network</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">healthcheck</span><span class="pi">:</span>
+      <span class="na">test</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">CMD-SHELL"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">appdb"</span><span class="pi">]</span>
+      <span class="na">interval</span><span class="pi">:</span> <span class="s">10s</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="s">5s</span>
+      <span class="na">retries</span><span class="pi">:</span> <span class="m">5</span>
+
+  <span class="c1"># Redis Cache</span>
+  <span class="na">redis</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">redis:7-alpine</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">app-redis</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">redis-server --appendonly yes --requirepass redispassword</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">redis_data:/data</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">6379:6379"</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-network</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">healthcheck</span><span class="pi">:</span>
+      <span class="na">test</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">CMD"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">redis-cli"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">--no-auth-warning"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">-a"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">redispassword"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">ping"</span><span class="pi">]</span>
+      <span class="na">interval</span><span class="pi">:</span> <span class="s">10s</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="s">5s</span>
+      <span class="na">retries</span><span class="pi">:</span> <span class="m">5</span>
+
+  <span class="c1"># Nginx Reverse Proxy</span>
+  <span class="na">nginx</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:alpine</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">app-nginx</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span>
+      <span class="pi">-</span> <span class="s">./nginx/ssl:/etc/nginx/ssl:ro</span>
+      <span class="pi">-</span> <span class="s">./nginx/logs:/var/log/nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">80:80"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">443:443"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">frontend</span>
+      <span class="pi">-</span> <span class="s">backend</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-network</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">frontend_node_modules</span><span class="pi">:</span>
+  <span class="na">backend_venv</span><span class="pi">:</span>
+  <span class="na">postgres_data</span><span class="pi">:</span>
+  <span class="na">redis_data</span><span class="pi">:</span>
+
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">app-network</span><span class="pi">:</span>
+    <span class="na">driver</span><span class="pi">:</span> <span class="s">bridge</span>
+    <span class="na">ipam</span><span class="pi">:</span>
+      <span class="na">config</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">subnet</span><span class="pi">:</span> <span class="s">172.20.0.0/16</span>
+</code></pre></div></div>
+
+<h2 id="code-block---json-data-panjang">
+<a class="anchor" href="#code-block---json-data-panjang" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Block - JSON (Data Panjang)</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"apiVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"generatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-23T10:30:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albawid Blog API"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.4.2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"post-001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mengenal Hermes Agent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mengenal-hermes-agent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-001"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albawid"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"albawid@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/avatars/albawid.png"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"social"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"github"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/albawid"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/albawid"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://linkedin.com/in/albawid"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AI"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Technology"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Tutorial"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hermes"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ai-agent"</span><span class="p">,</span><span class="w"> </span><span class="s2">"open-source"</span><span class="p">,</span><span class="w"> </span><span class="s2">"automation"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"publishedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-03T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-03T15:30:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"readingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wordCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2847</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"excerpt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengalaman menggunakan Hermes Agent, AI agent framework open-source dari Nous Research."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"featuredImage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/hermes-agent-cover.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hermes Agent Preview"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">630</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">1547</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"shares"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"seo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"metaTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mengenal Hermes Agent - AI Agent Framework Open Source"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"metaDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajari Hermes Agent, AI agent framework open-source yang bisa ngoding, manage server, dan punya ingatan permanen."</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://albawid.github.io/mengenal-hermes-agent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ogImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/hermes-agent-og.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"itemsPerPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hasNext"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hasPrev"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr>
+
+<h1 id="horizontal-rule">
+<a class="anchor" href="#horizontal-rule" aria-hidden="true"><span class="octicon octicon-link"></span></a>Horizontal Rule</h1>
+
+<p>Tiga cara membuat horizontal rule:</p>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<h1 id="footnote">
+<a class="anchor" href="#footnote" aria-hidden="true"><span class="octicon octicon-link"></span></a>Footnote</h1>
+
+<p>Ini adalah kalimat dengan footnote<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> dan juga footnote kedua<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
+
+<hr>
+
+<h1 id="task-list">
+<a class="anchor" href="#task-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task List</h1>
+
+<ul class="task-list">
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Membuat post preview markdown</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Menambahkan heading semua level</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Menambahkan contoh code block</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Menambahkan contoh image gallery</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Menambahkan contoh embed video</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Testing di berbagai browser</li>
+</ul>
+
+<hr>
+
+<h1 id="definition-list">
+<a class="anchor" href="#definition-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Definition List</h1>
+
+<dl>
+  <dt>Istilah Pertama</dt>
+  <dd>Definisi untuk istilah pertama. Bisa multi-paragraph kalau perlu.</dd>
+  <dd>
+    <p>Definisi kedua untuk istilah yang sama.</p>
+  </dd>
+  <dt>Istilah Kedua</dt>
+  <dd>Definisi untuk istilah kedua dengan <strong>formatting</strong> dan <code class="language-plaintext highlighter-rouge">inline code</code>.</dd>
+  <dt>Istilah Ketiga</dt>
+  <dd>Definisi untuk istilah ketiga.</dd>
+</dl>
+
+<hr>
+
+<h1 id="escaped-characters">
+<a class="anchor" href="#escaped-characters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Escaped Characters</h1>
+
+<p>Tampilkan karakter spesial dengan backslash:</p>
+
+<p>*Tidak jadi italic*</p>
+
+<p>**Tidak jadi bold**\</p>
+
+<p>[Tidak jadi link](url)</p>
+
+<p>`Tidak jadi inline code`</p>
+
+<p># Tidak jadi heading</p>
+
+<hr>
+
+<h1 id="colored-text-html">
+<a class="anchor" href="#colored-text-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colored Text (HTML)</h1>
+
+<p>Teks ini berisi <span style="color: #e94560;">teks berwarna merah</span>, <span style="color: #0f3460;">teks berwarna biru</span>, dan <span style="color: #16c79a;">teks berwarna hijau</span> menggunakan inline HTML.</p>
+
+<hr>
+
+<h1 id="summarydetails-html">
+<a class="anchor" href="#summarydetails-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary/Details (HTML)</h1>
+
+<details>
+<summary>Klik untuk membuka detail</summary>
+
+Ini adalah konten tersembunyi yang bisa di-expand. Berguna untuk:
+
+1. Menyembunyikan konten panjang
+2. FAQ section
+3. Spoiler content
+4. Tutorial step-by-step
+
+```python
+# Code di dalam details juga bisa
+print("Hello from hidden content!")
+```
+
+</details>
+
+<hr>
+
+<h1 id="keyboard-keys-html">
+<a class="anchor" href="#keyboard-keys-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keyboard Keys (HTML)</h1>
+
+<p>Tekan <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> untuk hard refresh browser.</p>
+
+<p>Shortcut lain:</p>
+<ul>
+  <li>
+<kbd>Ctrl</kbd> + <kbd>C</kbd> - Copy</li>
+  <li>
+<kbd>Ctrl</kbd> + <kbd>V</kbd> - Paste</li>
+  <li>
+<kbd>Alt</kbd> + <kbd>Tab</kbd> - Switch window</li>
+  <li>
+<kbd>Win</kbd> + <kbd>L</kbd> - Lock screen</li>
+</ul>
+
+<hr>
+
+<h1 id="abbreviation-html">
+<a class="anchor" href="#abbreviation-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abbreviation (HTML)</h1>
+
+<p>Gunakan <abbr title="HyperText Markup Language">HTML</abbr> dan <abbr title="Cascading Style Sheets">CSS</abbr> untuk membuat website. Jangan lupa <abbr title="JavaScript">JS</abbr> untuk interaktivitas.</p>
+
+<hr>
+
+<h1 id="akhiran">
+<a class="anchor" href="#akhiran" aria-hidden="true"><span class="octicon octicon-link"></span></a>Akhiran</h1>
+
+<p>Post ini dibuat sebagai referensi untuk mengecek styling semua elemen markdown di blog ini. Jika ada elemen yang tampilannya kurang sesuai, bisa langsung diperbaiki di file CSS.</p>
+
+<p>Terima kasih sudah membaca! 🎉</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Ini adalah isi dari footnote pertama. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Ini adalah isi dari footnote kedua dengan penjelasan lebih panjang. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+</p>
+  <div class="lisensi">
+    <h1>Lisensi</h1>
+    <div class="space-between">
+        <img src="/assets/img/lisensi.png" alt="Lisensi CC BY-NC-SA">
+        <p>
+            Tulisan ini dilisensikan dengan: <br>
+            <strong>Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank" rel="noreferrer noopener">(CC BY-NC-SA 4.0)</a>
+        </p>
+    </div>
+</div>
+  <h1>Komentar</h1>
+
+
+  
+  
+    <script src="https://utteranc.es/client.js"
+            repo=albawid/albawid.github.io
+            issue-term=pathname
+            label=Komentar
+            theme=gruvbox-dark
+            crossorigin= "anonymous"
+            async>
+    </script>
+  
+
+
+</div>
+
+    </div>
+    <footer>
+    <p>
+        Dibuat dengan <i class="fa fa-heart"></i> oleh Albawid<br>
+        Menggunakan <a href="https://jekyll.com" target="_blank" class="inline-link" rel="noreferrer noopener">Jekyll</a> sebagai framework<br>
+        Source Code tersedia di <a href="https://github.com/albawid" target="_blank" class="inline-link" rel="noreferrer noopener">Github</a><br>
+        Copyright © 2023-2024
+    </p>
+</footer>
+    <script type="text/javascript" src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/copy-code.js"></script>
+  </body>
+</html>

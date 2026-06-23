@@ -1,0 +1,67 @@
+[
+
+  {
+    "title"    : "Preview Semua Elemen Markdown",
+    "url"      : "/posts/markdown-elements-preview/",
+    "tags"     : "<p># markdown </p><p># tutorial </p>",
+    "date"     : "23 June, 2026",
+    "excerpt" : "Post ini berisi contoh semua elemen markdown yang didukung oleh blog ini, termasuk heading, list, table, code block, blockquote, dan lain-lain."
+  },
+  {
+    "title"    : "Mengenal Hermes Agent: AI yang Bisa Ngoding, Ngurus Server, dan Nginget Semuanya",
+    "url"      : "/posts/mengenal-hermes-agent/",
+    "tags"     : "<p># AI </p><p># agent </p><p># hermes </p>",
+    "date"     : "3 June, 2026",
+    "excerpt" : "Pengalaman menggunakan Hermes Agent, AI agent framework open-source dari Nous Research yang bisa ngoding, manage server, dan punya ingatan permanen"
+  },
+  {
+    "title"    : "Fan Control OpenWrt OrangePi Zero 3",
+    "url"      : "/posts/fan-control-orangepizero3/",
+    "tags"     : "<p># OpenWrt </p><p># LuCI </p>",
+    "date"     : "12 July, 2025",
+    "excerpt" : "Smart fan controller designed for embedded systems running OpenWrt"
+  },
+  {
+    "title"    : "Penggunaan I dan I Am",
+    "url"      : "/posts/penggunaan-i-dan-iam/",
+    "tags"     : "<p># tips </p><p># catatan </p>",
+    "date"     : "13 February, 2025",
+    "excerpt" : "Membahas point pentingnya saja mengenai perbedaan penggunaan I dan I Am"
+  },
+  {
+    "title"    : "Pengenalan markdown dan contoh penggunaan",
+    "url"      : "/posts/pengenalan-markdown/",
+    "tags"     : "<p># markdown </p><p># tips </p><p># trik </p>",
+    "date"     : "20 September, 2023",
+    "excerpt" : "berkenalan dengan markdown, cara penulisan baru untuk mempermudah pembuatan content web statik"
+  },
+  {
+    "title"    : "membuat custom user snipet vscode",
+    "url"      : "/posts/membuat-custom-user-sinippet/",
+    "tags"     : "<p># vscode </p><p># tips </p><p># trik </p>",
+    "date"     : "13 September, 2023",
+    "excerpt" : "kesusahan mengetik tulisan yang sama namun berbeda berulang kali, maka membuat kustom snippet merupakan sebuah solusi"
+  },
+  {
+    "title"    : "proses membuat website part 3",
+    "url"      : "/posts/proses-membuat-website-part-3/",
+    "tags"     : "<p># Jekyll </p><p># website </p>",
+    "date"     : "12 September, 2023",
+    "excerpt" : "Melanjutkan pembahasan mengenai pembuatan website part 3, Bagian Deployment Website."
+  },
+  {
+    "title"    : "proses membuat website part 2",
+    "url"      : "/posts/proses-membuat-website-part-2/",
+    "tags"     : "<p># Jekyll </p><p># website </p>",
+    "date"     : "11 September, 2023",
+    "excerpt" : "Melanjutkan pembahasan mengenai pembuatan website part 2, Bagian integrasi Jekyll dengan HTML."
+  },
+  {
+    "title"    : "proses membuat website part 1",
+    "url"      : "/posts/proses-membuat-website-part-1/",
+    "tags"     : "<p># jekyll </p><p># website </p>",
+    "date"     : "10 September, 2023",
+    "excerpt" : "semua proses terkait pembuatan website akan ditulis sebagai post dengan sedetail mungkin, alih-alih biar website tidak kosong hehe"
+  }
+  
+]
