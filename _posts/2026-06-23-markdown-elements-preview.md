@@ -3,7 +3,7 @@ layout: post
 title: "Preview Semua Elemen Markdown"
 author: Albawid
 date: 2026-06-23
-tags: markdown tutorial preview
+tags: markdown tutorial
 excerpt: Post ini berisi contoh semua elemen markdown yang didukung oleh blog ini, termasuk heading, list, table, code block, blockquote, dan lain-lain.
 ---
 
