@@ -302,11 +302,12 @@ div.highlighter-rouge {
     overflow-x: auto;
     border-radius: .4rem;
     box-sizing: border-box;
-    background-color: var(--bg-dark);
+    background-color: var(--color-box-dark);
 }
 
 div.highlighter-rouge div.highlight {
     padding: 1rem 1rem;
+    background-color: var(--color-box-dark);
 }
 // END Codeblock
 
